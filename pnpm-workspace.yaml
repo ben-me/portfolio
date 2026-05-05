@@ -1,0 +1,9 @@
+shellEmulator: true
+
+trustPolicy: no-downgrade
+
+overrides:
+  vite: ^8.0.10
+onlyBuiltDependencies:
+  - "@parcel/watcher"
+  - esbuild

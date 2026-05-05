@@ -1,0 +1,5 @@
+:root {
+  @custom-media --md (width > 43.75rem);
+  @custom-media --lg (width > 56.25rem);
+  @custom-media --xl (width > 75rem);
+}
