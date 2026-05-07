@@ -2,7 +2,7 @@
   "name": "portfolio",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.15.0+sha512.486ebc259d3e999a4e8691ce03b5cac4a71cbeca39372a9b762cb500cfdf0873e2cb16abe3d951b1ee2cf012503f027b98b6584e4df22524e0c7450d9ec7aa7b",
+  "packageManager": "pnpm@11.0.8",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -15,8 +15,7 @@
   },
   "dependencies": {
     "nuxt": "^4.4.4",
-    "vite": "^8.0.10",
-    "vue": "^3.5.33",
+    "vue": "^3.5.34",
     "vue-router": "^5.0.6"
   },
   "devDependencies": {
@@ -27,6 +26,7 @@
     "lint-staged": "^16.4.0",
     "postcss-preset-env": "^11.2.1",
     "typescript": "^6.0.3",
+    "vite": "^7.3.3",
     "vue-tsc": "^3.2.8"
   },
   "lint-staged": {
