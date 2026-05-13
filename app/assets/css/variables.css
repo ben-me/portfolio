@@ -2,4 +2,61 @@
   @custom-media --md (width > 43.75rem);
   @custom-media --lg (width > 56.25rem);
   @custom-media --xl (width > 75rem);
+
+  --c-sky-100: oklch(97% 0.02 235);
+  --c-sky-200: oklch(90% 0.05 240);
+  --c-sky-300: oklch(83% 0.08 240);
+  --c-sky-400: oklch(74% 0.12 240);
+  --c-sky-500: oklch(64% 0.14 240);
+  --c-white: oklch(100% 0 0);
+  --c-cream-100: oklch(98% 0.02 90);
+  --c-cream-200: oklch(94% 0.06 85);
+  --c-cream-300: oklch(88% 0.1 85);
+  --c-peach: oklch(80% 0.11 45);
+  --c-coral: oklch(72% 0.18 25);
+  --c-rose: oklch(67% 0.19 5);
+  --c-gold: oklch(85% 0.14 80);
+  --c-mint: oklch(80% 0.1 160);
+  --c-green-100: oklch(95% 0.08 160);
+  --c-green-300: oklch(78% 0.2 160);
+  --c-green-500: oklch(48% 0.13 160);
+  --c-grape: oklch(56% 0.17 290);
+  --c-ink-900: oklch(25% 0.05 265);
+  --c-ink-700: oklch(38% 0.05 260);
+  --c-ink-500: oklch(55% 0.05 255);
+
+  --c-bg: var(--c-sky-200);
+  --c-surface: var(--c-cream-100);
+  --c-surface-alt: var(--c-cream-200);
+  --c-text: var(--c-ink-900);
+  --c-text-muted: var(--c-ink-500);
+  --c-accent: var(--c-coral);
+  --c-accent-2: var(--c-gold);
+  --c-link: var(--c-sky-500);
+  --c-border: var(--c-ink-900);
+
+  --outline: drop-shadow(-1px -1px 0 var(--c-border)) drop-shadow(0 -1px 0 var(--c-border))
+    drop-shadow(1px -1px 0 var(--c-border)) drop-shadow(1px 0 0 var(--c-border)) drop-shadow(1px 1px 0 var(--c-border))
+    drop-shadow(0 1px 0 var(--c-border)) drop-shadow(-1px 1px 0 var(--c-border)) drop-shadow(-1px 0 0 var(--c-border));
+
+  --fs--2: clamp(0.5628rem, 0.5052rem + 0.2558vw, 0.7035rem);
+  --fs--1: clamp(0.7502rem, 0.6735rem + 0.341vw, 0.9377rem);
+  --fs-0: clamp(1rem, 0.8977rem + 0.4545vw, 1.25rem);
+  --fs-1: clamp(1.333rem, 1.1967rem + 0.6059vw, 1.6663rem);
+  --fs-2: clamp(1.7769rem, 1.5952rem + 0.8077vw, 2.2211rem);
+  --fs-3: clamp(2.3686rem, 2.1264rem + 1.0766vw, 2.9607rem);
+  --fs-4: clamp(3.1573rem, 2.8344rem + 1.4352vw, 3.9467rem);
+  --fs-5: clamp(4.2087rem, 3.7783rem + 1.9131vw, 5.2609rem);
+}
+
+@font-face {
+  font-family: "Jersey 10";
+  src: url("/assets/fonts/Jersey10-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Jersey 15";
+  src: url("/assets/fonts/Jersey15-Regular.ttf") format("truetype");
+  font-weight: 400;
 }
