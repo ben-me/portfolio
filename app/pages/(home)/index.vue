@@ -1,5 +1,5 @@
 <script setup lang="ts">
-definePageMeta({ layout: "hero" });
+definePageMeta({ layout: "home" });
 </script>
 
 <template>
@@ -12,7 +12,6 @@ definePageMeta({ layout: "hero" });
       </h1>
       <h2>The power-up your next web project deserves.</h2>
     </div>
-    <NuxtImg src="/herobg.webp" />
     <NavMenu />
   </div>
 </template>
@@ -23,15 +22,6 @@ definePageMeta({ layout: "hero" });
   gap: 3rem;
   justify-items: center;
   max-width: 75rem;
-
-  img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
 
   nav {
     animation: fade var(--dur-fade) var(--ease-snap) var(--delay-menu) both;
