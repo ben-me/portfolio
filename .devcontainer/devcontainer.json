@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-dev",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "configureZshAsDefaultShell": true
+    },
+    "ghcr.io/duduribeiro/devcontainer-features/neovim:1": {},
+    "ghcr.io/devcontainers-extra/features/claude-code:2": {},
+    "ghcr.io/w3cj/devcontainer-features/firewall:latest": {
+      "githubIps": true,
+      "claudeCode": true
+    }
+  },
+  "appPort": [3000],
+  "remoteUser": "node",
+  "containerUser": "node",
+  "remoteEnv": {
+    "SHELL": "/bin/zsh",
+    "PATH": "${containerEnv:PATH}:/home/node/.local/share/pnpm/bin"
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/dotfiles/.config/nvim,target=/home/node/.config/nvim,type=bind,readonly"
+  ],
+  "postCreateCommand": "mkdir -p /home/node/.local/share/pnpm && pnpm config set store-dir /home/node/.local/share/pnpm/store"
+}
