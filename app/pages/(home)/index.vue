@@ -1,9 +1,9 @@
 <script setup lang="ts">
-definePageMeta({ layout: "home" });
+definePageMeta({ layout: "home", layoutTransition: { name: "home" } });
 </script>
 
 <template>
-  <div class="wrapper">
+  <section>
     <div class="hero">
       <h1>
         <span>Benedikt</span>
@@ -13,11 +13,11 @@ definePageMeta({ layout: "home" });
       <h2>The power-up your next web project deserves.</h2>
     </div>
     <NavMenu />
-  </div>
+  </section>
 </template>
 
 <style scoped>
-.wrapper {
+section {
   display: grid;
   gap: 3rem;
   justify-items: center;
@@ -134,10 +134,10 @@ definePageMeta({ layout: "home" });
 @media (prefers-reduced-motion: reduce) {
   .hero h1 span,
   .hero h2,
-  .wrapper nav,
-  .wrapper.ready .hero h1 span,
-  .wrapper.ready .hero h2,
-  .wrapper nav {
+  section nav,
+  section.ready .hero h1 span,
+  section.ready .hero h2,
+  section nav {
     animation: none;
     opacity: 1;
   }

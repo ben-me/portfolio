@@ -9,9 +9,10 @@
 
 <style scoped>
 div {
+  position: absolute;
+  inset: 0;
   display: grid;
   grid-template-rows: 1fr auto;
-  min-height: 100dvh;
 
   main {
     display: grid;

@@ -12,12 +12,19 @@
 
 <style scoped>
 div {
+  position: absolute;
+  inset: 0;
   display: grid;
   grid-template-rows: auto 1fr auto;
 
-  > header {
+  header {
     display: flex;
     justify-content: center;
+    margin-block-start: 0.25rem;
+  }
+
+  main {
+    position: relative;
   }
 }
 </style>
