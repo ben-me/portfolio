@@ -1,4 +1,11 @@
 @layer base {
+  .wrapper {
+    position: absolute;
+    inset: 0;
+    max-width: 90rem;
+    margin-inline: auto;
+  }
+
   h1 {
     font-size: var(--fs-5);
   }
