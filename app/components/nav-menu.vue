@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { pageOrder } from "~/middleware/page-transition.global";
+
 const props = withDefaults(
   defineProps<{
     orientation?: "vertical" | "horizontal";
@@ -8,15 +10,18 @@ const props = withDefaults(
   },
 );
 
-const items = [
-  { label: "Projects", to: "/projects" },
-  { label: "About", to: "/about" },
-  { label: "Blog", to: "/blog" },
-  { label: "Contact", to: "/contact" },
-];
+const route = useRoute();
+const items = computed(() =>
+  pageOrder.filter(
+    p => p.route !== "/" || props.orientation === "horizontal",
+  ),
+);
 
-const activeIndex = ref(0);
-const canHover = ref(true);
+const routeIndex = computed(() =>
+  items.value.findIndex(page => page.route === route.path),
+);
+const keyboardIndex = ref<number | null>(null);
+const focusIndex = computed(() => keyboardIndex.value ?? routeIndex.value);
 
 function onKey(e: KeyboardEvent) {
   const nextKeys
@@ -28,29 +33,30 @@ function onKey(e: KeyboardEvent) {
       ? ["ArrowUp", "k"]
       : ["ArrowLeft", "h"];
 
+  const current = focusIndex.value;
+
   if (nextKeys.includes(e.key)) {
-    activeIndex.value = (Math.max(activeIndex.value, -1) + 1) % items.length;
+    keyboardIndex.value = (Math.max(current, -1) + 1) % items.value.length;
     e.preventDefault();
   }
   else if (prevKeys.includes(e.key)) {
-    activeIndex.value
-      = (activeIndex.value - 1 + items.length) % items.length;
+    keyboardIndex.value
+      = (current - 1 + items.value.length) % items.value.length;
     e.preventDefault();
   }
   else if (e.key === "Enter") {
-    const target = items[activeIndex.value];
-    if (target)
-      navigateTo(target.to);
+    const target = items.value[current];
+    if (target) {
+      navigateTo(target.route);
+      keyboardIndex.value = null;
+    }
   }
 }
 
 onMounted(() => {
-  const mq = window.matchMedia("(hover: hover)");
-  canHover.value = mq.matches;
-  if (!mq.matches)
-    activeIndex.value = -1;
   window.addEventListener("keydown", onKey);
 });
+
 onBeforeUnmount(() => {
   window.removeEventListener("keydown", onKey);
 });
@@ -59,14 +65,14 @@ onBeforeUnmount(() => {
 <template>
   <nav :class="orientation">
     <ul>
-      <li
-        v-for="(item, i) in items"
-        :key="item.to"
-        :class="{ 'is-active': activeIndex === i }"
-        @mouseenter="canHover && (activeIndex = i)"
-        @focusin="activeIndex = i"
-      >
-        <NuxtLink :to="item.to">
+      <li v-for="(item, i) in items" :key="item.route">
+        <NuxtLink
+          :to="item.route"
+          :class="{
+            'is-active': route.path === item.route,
+            'is-focused': focusIndex === i,
+          }"
+        >
           <span class="cursor" aria-hidden="true">▶</span>
           <span>{{ item.label }}</span>
         </NuxtLink>
@@ -89,6 +95,7 @@ nav {
 
   &.vertical ul {
     flex-direction: column;
+    align-items: center;
     gap: 0.35rem;
   }
 
@@ -102,30 +109,26 @@ nav {
     }
   }
 
-  li {
-    a {
-      display: flex;
-      align-items: baseline;
-      gap: 0.6rem;
-      font: inherit;
-      text-decoration: none;
-      padding: 0.45rem 2.5rem 0.45rem 0.75rem;
-      color: var(--c-panel-border);
-      transition: none;
+  a {
+    display: flex;
+    gap: 0.6rem;
+    text-decoration: none;
+    padding: 0.45rem 2.5rem 0.45rem 0.75rem;
+    color: black;
 
-      span {
-        line-height: 1;
+    span {
+      line-height: 1;
 
-        &:first-child {
-          color: var(--c-gold);
-          visibility: hidden;
-        }
+      &:first-child {
+        color: var(--c-gold);
+        visibility: hidden;
       }
     }
 
-    &.is-active a {
+    &.is-active {
       background: var(--c-gold);
       color: var(--c-ink-900);
+      filter: none;
       box-shadow:
         inset 2px 2px 0 0 color-mix(in oklab, var(--c-gold) 70%, white),
         inset -2px -2px 0 0 color-mix(in oklab, var(--c-gold) 60%, black);
@@ -136,7 +139,16 @@ nav {
       }
     }
 
-    a:focus-visible {
+    &:not(.is-active):hover,
+    &.is-focused:not(.is-active) {
+      color: var(--c-gold);
+
+      .cursor {
+        visibility: visible;
+      }
+    }
+
+    &:focus-visible {
       outline: 2px dashed var(--c-gold);
       outline-offset: 2px;
     }
@@ -144,7 +156,7 @@ nav {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  nav li.is-active a .cursor {
+  nav a.is-active .cursor {
     animation: none;
   }
 }
