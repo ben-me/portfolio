@@ -2,5 +2,7 @@
 </script>
 
 <template>
-  <Button>Test</Button>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
