@@ -52,14 +52,6 @@
   --fs-5: clamp(4.2087rem, 2.4476rem + 7.8273vw, 9.4922rem);
 
   --ff-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
-
-  --ease-snap: cubic-bezier(0.16, 1, 0.3, 1);
-  --dur-slide: 0.5s;
-  --dur-fade: 0.5s;
-  --delay-word-1: 0.4s;
-  --delay-word-2: 0.8s;
-  --delay-subtitle: 1.5s;
-  --delay-menu: 2s;
 }
 
 @font-face {

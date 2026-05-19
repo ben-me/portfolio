@@ -18,6 +18,14 @@ definePageMeta({ layout: "home", layoutTransition: { name: "home" } });
 
 <style scoped>
 section {
+  --ease-snap: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-slide: 0.5s;
+  --dur-fade: 0.5s;
+  --delay-word-1: 0.4s;
+  --delay-word-2: 0.8s;
+  --delay-subtitle: 1.5s;
+  --delay-menu: 2s;
+
   display: grid;
   gap: 3rem;
   justify-items: center;
