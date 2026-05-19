@@ -1,4 +1,4 @@
-export const pageOrder = [
+export const pages = [
   { label: "Home", route: "/" },
   { label: "Projects", route: "/projects" },
   { label: "Blog", route: "/blog" },
@@ -17,8 +17,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
     return;
   }
 
-  const toIdx = pageOrder.findIndex(p => p.route === to.path);
-  const fromIdx = pageOrder.findIndex(p => p.route === from.path);
+  const toIdx = pages.findIndex(p => p.route === to.path);
+  const fromIdx = pages.findIndex(p => p.route === from.path);
   const name = toIdx < fromIdx ? "slide-right" : "slide-left";
   to.meta.pageTransition = { name };
   from.meta.pageTransition = { name };
