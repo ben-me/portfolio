@@ -18,6 +18,7 @@ div {
   grid-template-rows: auto 1fr auto;
 
   header {
+    z-index: 1;
     display: flex;
     justify-content: center;
     margin-block-start: 0.25rem;

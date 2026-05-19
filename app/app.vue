@@ -1,10 +1,8 @@
 <template>
   <NuxtImg src="/herobg.webp" />
-  <div>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <style scoped>
