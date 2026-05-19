@@ -62,17 +62,26 @@ nav {
 
     ul {
       width: 100%;
-      justify-content: space-around;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+
+      @media (--md) {
+        justify-content: space-around;
+      }
     }
   }
-
   a {
     display: flex;
-    gap: 0.6rem;
+    gap: 0.4rem;
     text-decoration: none;
-    padding: 0.45rem 2.5rem 0.45rem 0.75rem;
+    padding: 0.35rem 0.5rem;
     color: var(--c-black);
     transition: all 0.2s;
+
+    @media (--md) {
+      padding: 0.45rem 1.25rem 0.45rem 0.75rem;
+    }
 
     span {
       line-height: 1;
