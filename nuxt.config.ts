@@ -11,6 +11,9 @@ export default defineNuxtConfig({
   },
   postcss: {
     plugins: {
+      "@csstools/postcss-global-data": {
+        files: ["./app/assets/css/variables.css"],
+      },
       "postcss-preset-env": {
         stage: 3,
         features: {
@@ -22,4 +25,9 @@ export default defineNuxtConfig({
     },
   },
   modules: ["@nuxt/image"],
+  vite: {
+    optimizeDeps: {
+      include: ["valibot"],
+    },
+  },
 });
