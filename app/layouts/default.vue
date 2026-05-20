@@ -26,6 +26,7 @@ div {
 
   main {
     position: relative;
+    overflow-y: auto;
   }
 }
 </style>

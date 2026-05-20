@@ -1,7 +1,9 @@
 @layer base {
   .wrapper {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     max-width: 90rem;
     margin-inline: auto;
   }
