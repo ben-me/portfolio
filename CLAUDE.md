@@ -1,5 +1,7 @@
 # Project instructions
 
-- don't use hard values for fonts and colors, use variables instead. if there is no variable, create one in /app/assets/css/variables.css file
-- scoped css in vue files should target selectors first and use nesting
+- this is a retro themed (think style of old super nintendo games) portfolio website for a frontend developer written in vue/nuxt
+- in css blocks and files prefer specifying elements instead of classes and use native css nesting. For colors try reusing variables. Animations and one off values can be declared in the file they are used in
+- use good semantic html with accessibility as top priority. But don't over declare aria attributes
+- use a mobile first approach
 - Keep responses concise
