@@ -131,11 +131,9 @@ function handleSubmit() {
 
 <style scoped>
 section {
-  padding: 2rem 1rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
 }
 
 h1 {

@@ -26,6 +26,7 @@ div {
 
   main {
     position: relative;
+    overflow-x: clip;
     overflow-y: auto;
   }
 }
