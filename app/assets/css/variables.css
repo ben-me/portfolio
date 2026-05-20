@@ -37,6 +37,8 @@
   --c-border: var(--c-ink-900);
   --c-panel: var(--c-ink-900);
   --c-panel-border: var(--c-sky-100);
+  --c-panel-shine: oklch(99% 0.01 235);
+  --c-panel-shade: oklch(19% 0.004 235);
 
   --outline: drop-shadow(-0.8px -0.8px 0 var(--c-border)) drop-shadow(0 -0.8px 0 var(--c-border))
     drop-shadow(0.8px -0.8px 0 var(--c-border)) drop-shadow(0.8px 0 0 var(--c-border))

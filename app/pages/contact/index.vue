@@ -148,8 +148,8 @@ form {
   background: var(--c-panel);
   border: 4px solid var(--c-panel-border);
   box-shadow:
-    inset 2px 2px 0 color-mix(in oklab, var(--c-panel-border) 50%, white),
-    inset -2px -2px 0 color-mix(in oklab, var(--c-panel-border) 20%, black),
+    inset 2px 2px 0 var(--c-panel-shine),
+    inset -2px -2px 0 var(--c-panel-shade),
     6px 6px 0 var(--c-border);
   display: flex;
   flex-direction: column;
