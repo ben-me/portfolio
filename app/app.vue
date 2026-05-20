@@ -1,7 +1,22 @@
+<script setup lang="ts">
+const transition = useState("page-transition", () => ({ name: "slide-left" }));
+
+if (import.meta.client) {
+  const router = useRouter();
+  router.beforeEach((to, from) => {
+    const toIdx = pages.findIndex(page => page.route === to.path);
+    const fromIdx = pages.findIndex(page => page.route === from.path);
+    if (toIdx === -1 || fromIdx === -1)
+      return;
+    transition.value = { name: toIdx < fromIdx ? "slide-right" : "slide-left" };
+  });
+}
+</script>
+
 <template>
-  <NuxtImg src="/herobg.webp" />
+  <NuxtImg src="/img/herobg.webp" />
   <NuxtLayout>
-    <NuxtPage />
+    <NuxtPage :transition="transition" />
   </NuxtLayout>
 </template>
 

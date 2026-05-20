@@ -4,7 +4,6 @@ export default defineNuxtConfig({
   css: ["./app/assets/css/style.css"],
   app: {
     layoutTransition: { name: "layout" },
-    pageTransition: { name: "slide-left" },
   },
   typescript: {
     typeCheck: true,
