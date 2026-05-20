@@ -13,7 +13,6 @@
       "hosts": "nuxt.com"
     }
   },
-  "appPort": [3000],
   "remoteUser": "node",
   "containerUser": "node",
   "remoteEnv": {
