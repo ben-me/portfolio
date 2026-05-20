@@ -22,6 +22,14 @@
   --c-green-300: oklch(78% 0.2 160);
   --c-green-500: oklch(48% 0.13 160);
   --c-grape: oklch(56% 0.17 290);
+
+  --c-svelte: #ff3e00;
+  --c-vue: #42b883;
+  --c-react: #58c4dc;
+  --c-html: #e34f26;
+  --c-css: rebeccapurple;
+  --c-typescript: #3178c6;
+  --c-accessibility: #0076d6;
   --c-ink-900: oklch(25% 0.05 265);
   --c-ink-700: oklch(38% 0.05 260);
   --c-ink-500: oklch(55% 0.05 255);

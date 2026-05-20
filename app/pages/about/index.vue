@@ -44,8 +44,16 @@ const experiences = [
         <section>
           <h2>Skills</h2>
           <dl class="bars">
-            <div v-for="skill in skills" :key="skill.label" :style="{ '--pct': skill.value }">
-              <dt>{{ skill.label }}</dt>
+            <div
+              v-for="(skill) in skills"
+              :key="skill.label"
+              :data-skill="skill.label.toLowerCase()"
+              :style="{ '--pct': skill.value }"
+            >
+              <dt>
+                <span class="label">{{ skill.label }}</span>
+                <span class="value" aria-hidden="true">{{ skill.value / 10 }}<small>/10</small></span>
+              </dt>
               <dd>
                 <meter :value="skill.value" min="0" max="100" class="sr-only">
                   {{ skill.value }}/100
@@ -138,7 +146,8 @@ h1 {
     6px 6px 0 var(--c-border);
 
   .name {
-    font-size: var(--fs-2);
+    font-family: "Jersey 15";
+    font-size: var(--fs-3);
     color: var(--c-gold);
     line-height: 1;
   }
@@ -236,21 +245,70 @@ h1 {
 .bars {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
   margin: 0;
 
   div {
     color: var(--c-white);
+
+    &[data-skill="svelte"] {
+      --c-chip: var(--c-svelte);
+    }
+    &[data-skill="vue"] {
+      --c-chip: var(--c-vue);
+    }
+    &[data-skill="react"] {
+      --c-chip: var(--c-react);
+    }
+    &[data-skill="html"] {
+      --c-chip: var(--c-html);
+    }
+    &[data-skill="css"] {
+      --c-chip: var(--c-css);
+    }
+    &[data-skill="typescript"] {
+      --c-chip: var(--c-typescript);
+    }
+    &[data-skill="accessibility"] {
+      --c-chip: var(--c-accessibility);
+    }
   }
 
   dt {
-    margin-block-end: 0.15rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "Jersey 15";
+    font-size: var(--fs-0);
+    letter-spacing: 0.05em;
+    line-height: 1;
+    margin-block-end: 0.25rem;
+  }
+
+  .value {
+    color: var(--c-chip);
+    font-family: "Jersey 10";
+    font-size: var(--fs-1);
+    line-height: 0.6;
+
+    small {
+      color: var(--c-sky-300);
+      font-size: var(--fs--1);
+      opacity: 0.7;
+    }
   }
 
   dd {
-    height: 0.75rem;
-    border: 1px solid var(--c-sky-400);
-    background: var(--c-black);
+    --segments: 10;
+    height: 0.9rem;
+    margin: 0;
+    background: color-mix(var(--c-chip), black 65%);
+    border: 2px solid var(--c-chip);
+    box-shadow:
+      inset 1px 1px 0 var(--c-panel-shine),
+      inset -1px -1px 0 var(--c-black),
+      3px 3px 0 var(--c-black);
     position: relative;
 
     &::before {
@@ -259,7 +317,24 @@ h1 {
       inset-block: 0;
       inset-inline-start: 0;
       width: calc(var(--pct) * 1%);
-      background: var(--c-gold);
+      background: linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--c-chip), white 30%) 0 35%,
+        var(--c-chip) 35% 65%,
+        color-mix(in oklab, var(--c-chip), black 25%) 65% 100%
+      );
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: repeating-linear-gradient(
+        to right,
+        transparent 0 calc(100% / var(--segments) - 2px),
+        var(--c-black) calc(100% / var(--segments) - 2px) calc(100% / var(--segments))
+      );
     }
   }
 }
@@ -276,7 +351,7 @@ h1 {
   }
 
   .bars dd::before {
-    animation: fill-bar 1.4s cubic-bezier(0.7, 0, 0.3, 1) 0.3s both;
+    animation: fill-bar 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
   }
 }
 
