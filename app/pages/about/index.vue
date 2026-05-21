@@ -117,7 +117,7 @@ h1 {
     position: relative;
     background: var(--c-panel);
     border: 2px solid var(--c-gold);
-    box-shadow: 6px 6px 0 var(--c-border);
+    box-shadow: var(--panel-shadow);
 
     img {
       display: block;
@@ -140,10 +140,7 @@ h1 {
   padding: 1.5rem;
   background: var(--c-panel);
   border: 2px solid var(--c-gold);
-  box-shadow:
-    inset 1px 1px 0 var(--c-gold),
-    inset -1px -1px 0 var(--c-panel-shade),
-    6px 6px 0 var(--c-border);
+  box-shadow: var(--panel-shadow);
 
   .name {
     font-family: "Jersey 15";
