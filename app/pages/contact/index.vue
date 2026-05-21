@@ -146,11 +146,8 @@ form {
   width: 100%;
   max-width: 56.25rem;
   background: var(--c-panel);
-  border: 4px solid var(--c-panel-border);
-  box-shadow:
-    inset 2px 2px 0 var(--c-panel-shine),
-    inset -2px -2px 0 var(--c-panel-shade),
-    6px 6px 0 var(--c-border);
+  border: 2px solid var(--c-gold);
+  box-shadow: var(--panel-shadow);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;

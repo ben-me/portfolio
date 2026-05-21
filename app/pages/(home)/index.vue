@@ -31,8 +31,10 @@ section {
   justify-items: center;
   max-width: 75rem;
 
-  nav {
-    animation: fade var(--dur-fade) var(--ease-snap) var(--delay-menu) both;
+  @media (prefers-reduced-motion: no-preference) {
+    nav {
+      animation: fade var(--dur-fade) var(--ease-snap) var(--delay-menu) both;
+    }
   }
 }
 
@@ -73,6 +75,22 @@ section {
       );
       background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      @media (prefers-reduced-motion: no-preference) {
+        animation-duration: var(--dur-slide);
+        animation-timing-function: var(--ease-snap);
+        animation-fill-mode: both;
+
+        &:first-of-type {
+          animation-name: slide-in-left;
+          animation-delay: var(--delay-word-1);
+        }
+
+        &:last-of-type {
+          animation-name: slide-in-right;
+          animation-delay: var(--delay-word-2);
+        }
+      }
     }
   }
 
@@ -83,28 +101,10 @@ section {
     max-width: 30ch;
     color: var(--c-white);
     filter: var(--outline);
-  }
-}
 
-.hero {
-  h1 span {
-    animation-duration: var(--dur-slide);
-    animation-timing-function: var(--ease-snap);
-    animation-fill-mode: both;
-
-    &:first-of-type {
-      animation-name: slide-in-left;
-      animation-delay: var(--delay-word-1);
+    @media (prefers-reduced-motion: no-preference) {
+      animation: fade var(--dur-fade) var(--ease-snap) var(--delay-subtitle) both;
     }
-
-    &:last-of-type {
-      animation-name: slide-in-right;
-      animation-delay: var(--delay-word-2);
-    }
-  }
-
-  h2 {
-    animation: fade var(--dur-fade) var(--ease-snap) var(--delay-subtitle) both;
   }
 }
 
@@ -135,18 +135,6 @@ section {
     opacity: 0;
   }
   to {
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero h1 span,
-  .hero h2,
-  section nav,
-  section.ready .hero h1 span,
-  section.ready .hero h2,
-  section nav {
-    animation: none;
     opacity: 1;
   }
 }
