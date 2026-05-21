@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { pages } from "~/middleware/page-transition.global";
-
 const props = withDefaults(
   defineProps<{
     orientation?: "vertical" | "horizontal";
