@@ -34,6 +34,7 @@ const lastHoveredIndex = ref(0);
             'cursor-hover': index === lastHoveredIndex,
           }"
           @mouseenter="lastHoveredIndex = index"
+          @focus="lastHoveredIndex = index"
         >
           {{ item.label }}
         </NuxtLink>
