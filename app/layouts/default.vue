@@ -21,7 +21,7 @@ div {
     z-index: 1;
     display: flex;
     justify-content: center;
-    margin-block-start: 0.25rem;
+    margin-block: 0.25rem;
   }
 
   main {
