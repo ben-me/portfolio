@@ -23,6 +23,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^8.2.0",
     "@csstools/postcss-global-data": "^4.0.0",
+    "@inlang/paraglide-js": "^2.18.1",
     "eslint": "^10.3.0",
     "eslint-plugin-format": "^2.0.1",
     "husky": "^9.1.7",

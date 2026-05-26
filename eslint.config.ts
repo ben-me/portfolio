@@ -10,6 +10,7 @@ export default antfu({
     indent: 2,
     quotes: "double",
   },
+  ignores: ["app/paraglide/**"],
   plugins: {},
 }, {
   rules: {

@@ -1,3 +1,5 @@
+import { paraglideVitePlugin } from "@inlang/paraglide-js";
+
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: false },
@@ -7,6 +9,18 @@ export default defineNuxtConfig({
   },
   typescript: {
     typeCheck: true,
+  },
+  hooks: {
+    "pages:extend": function (pages) {
+      const originals = [...pages];
+      for (const page of originals) {
+        pages.push({
+          ...page,
+          name: page.name ? `${page.name}__en` : undefined,
+          path: page.path === "/" ? "/en" : `/en${page.path}`,
+        });
+      }
+    },
   },
   postcss: {
     plugins: {
@@ -25,6 +39,13 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxt/image"],
   vite: {
+    plugins: [
+      paraglideVitePlugin({
+        project: "./project.inlang",
+        outdir: "./app/paraglide/",
+        strategy: ["url", "baseLocale"],
+      }),
+    ],
     optimizeDeps: {
       include: ["valibot"],
     },
