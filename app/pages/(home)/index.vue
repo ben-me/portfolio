@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { m } from "~/paraglide/messages.js";
+
 definePageMeta({ layout: "home", layoutTransition: { name: "home" } });
 </script>
 
@@ -11,12 +13,12 @@ definePageMeta({ layout: "home", layoutTransition: { name: "home" } });
         <span>Mehler</span>
       </h1>
       <h2>
-        <span aria-hidden="true">The power-up your next web project deserves.</span>
-        <span>The power-up your next web project deserves.</span>
+        <span aria-hidden="true">{{ m.home_tagline() }}</span>
+        <span>{{ m.home_tagline() }}</span>
       </h2>
     </div>
     <p class="press-start">
-      — PRESS START —
+      {{ m.home_press_start() }}
     </p>
     <NavMenu />
   </section>

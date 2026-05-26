@@ -4,6 +4,7 @@ import * as v from "valibot";
 import type { ContactForm } from "#shared/schemas/contact";
 
 import { ContactSchema } from "#shared/schemas/contact";
+import { m } from "~/paraglide/messages.js";
 
 type FormKey = keyof ContactForm;
 
@@ -52,13 +53,13 @@ function handleSubmit() {
 
 <template>
   <section class="wrapper">
-    <h1>Contact</h1>
+    <h1>{{ m.contact() }}</h1>
 
     <form novalidate @submit.prevent="handleSubmit">
       <div>
         <label for="name">
           <span aria-hidden="true">▶</span>
-          Name:
+          {{ m.contact_name() }}
         </label>
         <input
           id="name"
@@ -75,7 +76,7 @@ function handleSubmit() {
       <div>
         <label for="email">
           <span aria-hidden="true">▶</span>
-          Email:
+          {{ m.contact_email() }}
         </label>
         <input
           id="email"
@@ -92,7 +93,7 @@ function handleSubmit() {
       <div>
         <label for="phone">
           <span aria-hidden="true">▶</span>
-          Phone:
+          {{ m.contact_phone() }}
         </label>
         <input
           id="phone"
@@ -109,7 +110,7 @@ function handleSubmit() {
       <div>
         <label for="description">
           <span aria-hidden="true">▶</span>
-          Message:
+          {{ m.contact_message() }}
         </label>
         <textarea
           id="description"
@@ -123,7 +124,7 @@ function handleSubmit() {
       </div>
 
       <button>
-        Send
+        {{ m.contact_send() }}
       </button>
     </form>
   </section>
