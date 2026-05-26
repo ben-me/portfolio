@@ -53,8 +53,8 @@
   --outline: drop-shadow(0 -2px 0 var(--c-border)) drop-shadow(2px 0 0 var(--c-border))
     drop-shadow(0 2px 0 var(--c-border)) drop-shadow(-2px 0 0 var(--c-border));
 
-  --outline-light: drop-shadow(0 -0.8px 0 var(--c-border)) drop-shadow(0.8px 0 0 var(--c-border))
-    drop-shadow(0 0.8px 0 var(--c-border)) drop-shadow(-0.8px 0 0 var(--c-border));
+  --outline-light: drop-shadow(0 -1px 0 var(--c-border)) drop-shadow(1px 0 0 var(--c-border))
+    drop-shadow(0 1px 0 var(--c-border)) drop-shadow(-1px 0 0 var(--c-border));
 
   --fs--2: clamp(0.5556rem, 0.5652rem + -0.0107vw, 0.5628rem);
   --fs--1: clamp(0.7502rem, 0.7225rem + 0.1232vw, 0.8333rem);

@@ -80,19 +80,20 @@ nav {
     }
 
     a {
+      font-family: "Jersey 10";
       font-size: var(--fs-1);
-      color: white;
+      color: var(--c-white);
       filter: var(--outline-light);
-      transition:
-        color 0.2s,
-        background 0.2s;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+      color: var(--c-gold);
     }
 
     @media (--lg) {
       a {
-        font-family: "Jersey 15";
-        font-size: var(--fs-1);
+        color: var(--c-white);
       }
+
       .cursor-hover {
         color: var(--c-gold);
 
@@ -107,7 +108,7 @@ nav {
           background: var(--c-gold);
 
           @media (prefers-reduced-motion: no-preference) {
-            animation: nav-cursor 1s linear infinite;
+            animation: nav-cursor 1s ease-in-out infinite;
           }
         }
       }

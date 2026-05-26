@@ -10,30 +10,28 @@ definePageMeta({ layout: "home", layoutTransition: { name: "home" } });
         <br>
         <span>Mehler</span>
       </h1>
-      <h2>The power-up your next web project deserves.</h2>
+      <h2>
+        <span aria-hidden="true">The power-up your next web project deserves.</span>
+        <span>The power-up your next web project deserves.</span>
+      </h2>
     </div>
+    <p class="press-start">
+      — PRESS START —
+    </p>
     <NavMenu />
   </section>
 </template>
 
 <style scoped>
 section {
-  --ease-snap: cubic-bezier(0.16, 1, 0.3, 1);
-  --dur-slide: 0.5s;
-  --dur-fade: 0.5s;
-  --delay-word-1: 0.4s;
-  --delay-word-2: 0.8s;
-  --delay-subtitle: 1.5s;
-  --delay-menu: 2s;
-
   display: grid;
-  gap: 3rem;
+  gap: 1rem;
   justify-items: center;
   max-width: 75rem;
 
   @media (prefers-reduced-motion: no-preference) {
     nav {
-      animation: fade var(--dur-fade) var(--ease-snap) var(--delay-menu) both;
+      animation: fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 3.2s both;
     }
   }
 }
@@ -77,18 +75,18 @@ section {
       -webkit-text-fill-color: transparent;
 
       @media (prefers-reduced-motion: no-preference) {
-        animation-duration: var(--dur-slide);
-        animation-timing-function: var(--ease-snap);
+        animation-duration: 0.5s;
+        animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
         animation-fill-mode: both;
 
         &:first-of-type {
           animation-name: slide-in-left;
-          animation-delay: var(--delay-word-1);
+          animation-delay: 0.4s;
         }
 
         &:last-of-type {
           animation-name: slide-in-right;
-          animation-delay: var(--delay-word-2);
+          animation-delay: 0.8s;
         }
       }
     }
@@ -96,15 +94,41 @@ section {
 
   h2 {
     font-family: "Jersey 10";
-    line-height: 1;
     font-size: var(--fs-3);
     max-width: 30ch;
+    display: grid;
+    filter: var(--outline-light);
     color: var(--c-white);
-    filter: var(--outline);
 
-    @media (prefers-reduced-motion: no-preference) {
-      animation: fade var(--dur-fade) var(--ease-snap) var(--delay-subtitle) both;
+    span {
+      grid-area: 1 / 1;
+
+      @media (prefers-reduced-motion: no-preference) {
+        animation-duration: 0.8s;
+        animation-timing-function: ease-in;
+        animation-fill-mode: both;
+        animation-delay: 1.5s;
+
+        &:first-child {
+          animation-name: slide-in-left;
+        }
+
+        &:last-child {
+          animation-name: slide-in-right;
+        }
+      }
     }
+  }
+}
+
+p {
+  font-family: "Jersey 15";
+  font-size: var(--fs-0);
+  color: hsl(from var(--c-black) h s l / 0.6);
+
+  @media (prefers-reduced-motion: no-preference) {
+    opacity: 0;
+    animation: press-start-blink 2s linear 3.8s infinite;
   }
 }
 
@@ -136,6 +160,17 @@ section {
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes press-start-blink {
+  0%,
+  49.9% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
   }
 }
 </style>
