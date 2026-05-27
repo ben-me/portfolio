@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { m } from "~/paraglide/messages.js";
-import { deLocalizeHref, localizeHref } from "~/paraglide/runtime.js";
-
 const props = withDefaults(
   defineProps<{
     orientation?: "vertical" | "horizontal";
@@ -12,10 +9,12 @@ const props = withDefaults(
 );
 
 const route = useRoute();
-const currentLocale = computed(() => (route.path === "/en" || route.path.startsWith("/en/") ? "en" : "de"));
-const currentBasePath = computed(() => deLocalizeHref(route.path));
+const localePath = useLocalePath();
+const getRouteBaseName = useRouteBaseName();
+
+const currentBaseName = computed(() => getRouteBaseName(route));
 const navItems = computed(() => {
-  if (currentBasePath.value === "/") {
+  if (currentBaseName.value === "index") {
     return pages.slice(1);
   }
   return pages;
@@ -32,16 +31,16 @@ const lastHoveredIndex = ref(0);
         :key="item.route"
       >
         <NuxtLink
-          :to="localizeHref(item.route, { locale: currentLocale })"
+          :to="localePath(item.route)"
           :class="{
             'is-active':
-              props.orientation === 'horizontal' && currentBasePath === item.route,
+              props.orientation === 'horizontal' && currentBaseName === item.name,
             'cursor-hover': index === lastHoveredIndex,
           }"
           @mouseenter="lastHoveredIndex = index"
           @focus="lastHoveredIndex = index"
         >
-          {{ m[item.key]({}, { locale: currentLocale }) }}
+          {{ $t(item.key) }}
         </NuxtLink>
       </li>
     </ul>

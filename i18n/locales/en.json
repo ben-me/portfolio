@@ -37,5 +37,6 @@
   "err_subject_required": "Subject is required",
   "err_subject_min": "At least 3 characters",
   "err_description_required": "Description is required",
-  "err_description_min": "At least 10 characters"
+  "err_description_min": "At least 10 characters",
+  "lang_switcher_label": "Language"
 }

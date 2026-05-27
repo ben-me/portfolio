@@ -1,37 +1,37 @@
 <script setup lang="ts">
-import { m } from "~/paraglide/messages.js";
+const { t } = useI18n();
 
-const skills = [
+const skills = computed(() => [
   { label: "Svelte", value: 90 },
   { label: "Vue", value: 70 },
   { label: "React", value: 80 },
   { label: "HTML", value: 95 },
   { label: "CSS", value: 90 },
   { label: "TypeScript", value: 75 },
-  { label: m.about_skill_accessibility(), value: 80, dataKey: "accessibility" },
-];
+  { label: t("about_skill_accessibility"), value: 80, dataKey: "accessibility" },
+]);
 
-const experiences = [
-  m.about_exp_rest(),
-  m.about_exp_storyblok(),
-  m.about_exp_accessible_interfaces(),
-  m.about_exp_docker(),
-  m.about_exp_self_hosting(),
-  m.about_exp_seo(),
-  m.about_exp_postgresql(),
-];
+const experiences = computed(() => [
+  t("about_exp_rest"),
+  t("about_exp_storyblok"),
+  t("about_exp_accessible_interfaces"),
+  t("about_exp_docker"),
+  t("about_exp_self_hosting"),
+  t("about_exp_seo"),
+  t("about_exp_postgresql"),
+]);
 </script>
 
 <template>
   <section class="wrapper">
-    <h1>{{ m.about() }}</h1>
+    <h1>{{ $t('about') }}</h1>
 
     <div class="arena">
       <div class="portrait">
         <div class="frame">
-          <NuxtImg src="/img/ben.webp" :alt="m.about_portrait_alt()" />
+          <NuxtImg src="/img/ben.webp" :alt="$t('about_portrait_alt')" />
         </div>
-        <span class="tag" aria-hidden="true">{{ m.about_player_one() }}</span>
+        <span class="tag" aria-hidden="true">{{ $t('about_player_one') }}</span>
       </div>
 
       <div class="stats">
@@ -40,11 +40,11 @@ const experiences = [
             Benedikt Mehler
           </p>
           <p class="job-title">
-            {{ m.about_job_title() }}
+            {{ $t('about_job_title') }}
           </p>
         </div>
         <section>
-          <h2>{{ m.about_skills() }}</h2>
+          <h2>{{ $t('about_skills') }}</h2>
           <dl class="bars">
             <div
               v-for="(skill) in skills"
@@ -65,7 +65,7 @@ const experiences = [
           </dl>
         </section>
         <section class="inventory">
-          <h2>{{ m.about_experience_with() }}</h2>
+          <h2>{{ $t('about_experience_with') }}</h2>
           <ul>
             <li v-for="(experience, i) in experiences" :key="experience" :style="{ '--i': i }">
               <span class="icon" aria-hidden="true">◆</span>

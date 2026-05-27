@@ -37,5 +37,6 @@
   "err_subject_required": "Betreff ist erforderlich",
   "err_subject_min": "Mindestens 3 Zeichen",
   "err_description_required": "Beschreibung ist erforderlich",
-  "err_description_min": "Mindestens 10 Zeichen"
+  "err_description_min": "Mindestens 10 Zeichen",
+  "lang_switcher_label": "Sprache"
 }
