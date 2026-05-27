@@ -1,53 +1,55 @@
 <script setup lang="ts">
-const skills = [
+const { t } = useI18n();
+
+const skills = computed(() => [
   { label: "Svelte", value: 90 },
   { label: "Vue", value: 70 },
   { label: "React", value: 80 },
   { label: "HTML", value: 95 },
   { label: "CSS", value: 90 },
   { label: "TypeScript", value: 75 },
-  { label: "Accessibility", value: 80 },
-];
+  { label: t("about_skill_accessibility"), value: 80, dataKey: "accessibility" },
+]);
 
-const experiences = [
-  "REST API Management",
-  "Storyblok CMS",
-  "Accessible Interfaces",
-  "Docker",
-  "(Self-) Hosting",
-  "SEO",
-  "PostgreSQL",
-];
+const experiences = computed(() => [
+  t("about_exp_rest"),
+  t("about_exp_storyblok"),
+  t("about_exp_accessible_interfaces"),
+  t("about_exp_docker"),
+  t("about_exp_self_hosting"),
+  t("about_exp_seo"),
+  t("about_exp_postgresql"),
+]);
 </script>
 
 <template>
   <section class="wrapper">
-    <h1>About</h1>
+    <h1>{{ $t('about') }}</h1>
 
     <div class="arena">
       <div class="portrait">
         <div class="frame">
-          <NuxtImg src="/img/ben.webp" alt="Benedikt Mehler smiling at the camera at dawn" />
+          <NuxtImg src="/img/ben.webp" :alt="$t('about_portrait_alt')" />
         </div>
-        <span class="tag" aria-hidden="true">PLAYER ONE</span>
+        <span class="tag" aria-hidden="true">{{ $t('about_player_one') }}</span>
       </div>
 
-      <div class="stats" role="region" aria-label="Developer profile and stats">
-        <header>
+      <div class="stats">
+        <div>
           <p class="name">
             Benedikt Mehler
           </p>
           <p class="job-title">
-            Frontend Developer
+            {{ $t('about_job_title') }}
           </p>
-        </header>
+        </div>
         <section>
-          <h2>Skills</h2>
+          <h2>{{ $t('about_skills') }}</h2>
           <dl class="bars">
             <div
               v-for="(skill) in skills"
               :key="skill.label"
-              :data-skill="skill.label.toLowerCase()"
+              :data-skill="('dataKey' in skill ? skill.dataKey : skill.label.toLowerCase())"
               :style="{ '--pct': skill.value }"
             >
               <dt>
@@ -63,8 +65,8 @@ const experiences = [
           </dl>
         </section>
         <section class="inventory">
-          <h2>Experience with:</h2>
-          <ul aria-label="Special abilities">
+          <h2>{{ $t('about_experience_with') }}</h2>
+          <ul>
             <li v-for="(experience, i) in experiences" :key="experience" :style="{ '--i': i }">
               <span class="icon" aria-hidden="true">◆</span>
               <span class="label">{{ experience }}</span>
@@ -86,7 +88,7 @@ const experiences = [
 
 h1 {
   font-family: "Jersey 10";
-  line-height: 0.6;
+  line-height: 0.8;
   color: var(--c-white);
   filter: var(--outline);
 }

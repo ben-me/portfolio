@@ -1,5 +1,5 @@
 <template>
   <section class="wrapper">
-    <h1>Blog</h1>
+    <h1>{{ $t('blog') }}</h1>
   </section>
 </template>

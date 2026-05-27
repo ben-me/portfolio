@@ -9,8 +9,12 @@ const props = withDefaults(
 );
 
 const route = useRoute();
+const localePath = useLocalePath();
+const getRouteBaseName = useRouteBaseName();
+
+const currentBaseName = computed(() => getRouteBaseName(route));
 const navItems = computed(() => {
-  if (route.path === "/") {
+  if (currentBaseName.value === "index") {
     return pages.slice(1);
   }
   return pages;
@@ -27,16 +31,16 @@ const lastHoveredIndex = ref(0);
         :key="item.route"
       >
         <NuxtLink
-          :to="item.route"
+          :to="localePath(item.route)"
           :class="{
             'is-active':
-              props.orientation === 'horizontal' && route.path === item.route,
+              props.orientation === 'horizontal' && currentBaseName === item.name,
             'cursor-hover': index === lastHoveredIndex,
           }"
           @mouseenter="lastHoveredIndex = index"
           @focus="lastHoveredIndex = index"
         >
-          {{ item.label }}
+          {{ $t(item.key) }}
         </NuxtLink>
       </li>
     </ul>

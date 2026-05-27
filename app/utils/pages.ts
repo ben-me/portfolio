@@ -1,7 +1,7 @@
 export const pages = [
-  { label: "Home", route: "/" },
-  { label: "Projects", route: "/projects" },
-  { label: "Blog", route: "/blog" },
-  { label: "About", route: "/about" },
-  { label: "Contact", route: "/contact" },
-];
+  { key: "nav_home", route: "/", name: "index" },
+  { key: "nav_projects", route: "/projects", name: "projects" },
+  { key: "nav_blog", route: "/blog", name: "blog" },
+  { key: "nav_about", route: "/about", name: "about" },
+  { key: "nav_contact", route: "/contact", name: "contact" },
+] as const satisfies ReadonlyArray<{ key: string; route: string; name: string }>;

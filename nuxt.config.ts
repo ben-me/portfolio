@@ -23,7 +23,14 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ["@nuxt/image"],
+  modules: ["@nuxt/image", "@nuxtjs/i18n"],
+  i18n: {
+    defaultLocale: "de",
+    locales: [
+      { code: "de", name: "Deutsch", file: "de.json" },
+      { code: "en", name: "English", file: "en.json" },
+    ],
+  },
   vite: {
     optimizeDeps: {
       include: ["valibot"],

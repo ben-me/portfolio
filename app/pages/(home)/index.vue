@@ -11,12 +11,12 @@ definePageMeta({ layout: "home", layoutTransition: { name: "home" } });
         <span>Mehler</span>
       </h1>
       <h2>
-        <span aria-hidden="true">The power-up your next web project deserves.</span>
-        <span>The power-up your next web project deserves.</span>
+        <span aria-hidden="true">{{ $t('home_tagline') }}</span>
+        <span>{{ $t('home_tagline') }}</span>
       </h2>
     </div>
     <p class="press-start">
-      — PRESS START —
+      {{ $t('home_press_start') }}
     </p>
     <NavMenu />
   </section>

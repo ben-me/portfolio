@@ -52,13 +52,13 @@ function handleSubmit() {
 
 <template>
   <section class="wrapper">
-    <h1>Contact</h1>
+    <h1>{{ $t('contact') }}</h1>
 
     <form novalidate @submit.prevent="handleSubmit">
       <div>
         <label for="name">
           <span aria-hidden="true">▶</span>
-          Name:
+          {{ $t('contact_name') }}
         </label>
         <input
           id="name"
@@ -75,7 +75,7 @@ function handleSubmit() {
       <div>
         <label for="email">
           <span aria-hidden="true">▶</span>
-          Email:
+          {{ $t('contact_email') }}
         </label>
         <input
           id="email"
@@ -92,7 +92,7 @@ function handleSubmit() {
       <div>
         <label for="phone">
           <span aria-hidden="true">▶</span>
-          Phone:
+          {{ $t('contact_phone') }}
         </label>
         <input
           id="phone"
@@ -109,7 +109,7 @@ function handleSubmit() {
       <div>
         <label for="description">
           <span aria-hidden="true">▶</span>
-          Message:
+          {{ $t('contact_message') }}
         </label>
         <textarea
           id="description"
@@ -123,7 +123,7 @@ function handleSubmit() {
       </div>
 
       <button>
-        Send
+        {{ $t('contact_send') }}
       </button>
     </form>
   </section>

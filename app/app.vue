@@ -1,11 +1,18 @@
 <script setup lang="ts">
-const transition = useState("page-transition", () => ({ name: "slide-left" }));
+const transition = useState<{ name: string } | false>("page-transition", () => ({ name: "slide-left" }));
 
 if (import.meta.client) {
   const router = useRouter();
+  const getRouteBaseName = useRouteBaseName();
   router.beforeEach((to, from) => {
-    const toIdx = pages.findIndex(page => page.route === to.path);
-    const fromIdx = pages.findIndex(page => page.route === from.path);
+    const toName = getRouteBaseName(to);
+    const fromName = getRouteBaseName(from);
+    if (toName === fromName) {
+      transition.value = false;
+      return;
+    }
+    const toIdx = pages.findIndex(page => page.name === toName);
+    const fromIdx = pages.findIndex(page => page.name === fromName);
     if (toIdx === -1 || fromIdx === -1)
       return;
     transition.value = { name: toIdx < fromIdx ? "slide-right" : "slide-left" };
@@ -18,6 +25,7 @@ if (import.meta.client) {
   <NuxtLayout>
     <NuxtPage :transition="transition" />
   </NuxtLayout>
+  <LanguageSwitcher />
 </template>
 
 <style scoped>
