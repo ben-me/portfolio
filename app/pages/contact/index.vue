@@ -136,12 +136,6 @@ section {
   align-items: center;
 }
 
-h1 {
-  font-family: "Jersey 10";
-  color: var(--c-white);
-  filter: var(--outline);
-}
-
 form {
   width: 100%;
   max-width: 56.25rem;
