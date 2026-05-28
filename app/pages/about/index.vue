@@ -86,13 +86,6 @@ const experiences = computed(() => [
   gap: 1.25rem;
 }
 
-h1 {
-  font-family: "Jersey 10";
-  line-height: 0.8;
-  color: var(--c-white);
-  filter: var(--outline);
-}
-
 .arena {
   display: flex;
   flex-direction: column;
