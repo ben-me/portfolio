@@ -9,7 +9,6 @@ const props = withDefaults(
 );
 
 const route = useRoute();
-const localePath = useLocalePath();
 const getRouteBaseName = useRouteBaseName();
 
 const currentBaseName = computed(() => getRouteBaseName(route));
@@ -30,8 +29,8 @@ const lastHoveredIndex = ref(0);
         v-for="(item, index) in navItems"
         :key="item.route"
       >
-        <NuxtLink
-          :to="localePath(item.route)"
+        <NuxtLinkLocale
+          :to="item.route"
           :class="{
             'is-active':
               props.orientation === 'horizontal' && currentBaseName === item.name,
@@ -41,7 +40,7 @@ const lastHoveredIndex = ref(0);
           @focus="lastHoveredIndex = index"
         >
           {{ $t(item.key) }}
-        </NuxtLink>
+        </Nuxtlinklocale>
       </li>
     </ul>
   </nav>
