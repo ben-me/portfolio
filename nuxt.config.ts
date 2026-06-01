@@ -1,6 +1,13 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: false },
+  runtimeConfig: {
+    public: {
+      emailjsServiceId: "",
+      emailjsContactTemplateId: "",
+      emailjsPublicKey: "",
+    },
+  },
   css: ["./app/assets/css/style.css"],
   app: {
     layoutTransition: { name: "layout" },
@@ -23,7 +30,7 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ["@nuxt/image", "@nuxtjs/i18n"],
+  modules: ["@nuxt/image", "@nuxtjs/i18n", "@pinia/nuxt"],
   i18n: {
     defaultLocale: "de",
     locales: [
