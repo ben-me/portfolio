@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import emailjs from "@emailjs/browser";
 import * as v from "valibot";
 
 import type { ContactForm } from "#shared/schemas/contact";
 
 import { ContactSchema } from "#shared/schemas/contact";
+import { useNotificationsStore } from "~/store/notifications";
 
 type FormKey = keyof ContactForm;
 
@@ -16,6 +18,12 @@ const form = ref<ContactForm>({
 });
 
 const errors = ref<Partial<Record<FormKey, string>>>({});
+const formRef = useTemplateRef("formRef");
+const config = useRuntimeConfig();
+
+const isSubmitting = ref(false);
+const { t } = useI18n();
+const notifications = useNotificationsStore();
 
 function validateField(field: FormKey) {
   const value = form.value[field];
@@ -32,7 +40,7 @@ function validateField(field: FormKey) {
   }
 }
 
-function handleSubmit() {
+async function handleSubmit() {
   const result = v.safeParse(ContactSchema, form.value);
   if (!result.success) {
     const { nested = {} } = v.flatten<typeof ContactSchema>(result.issues);
@@ -46,7 +54,29 @@ function handleSubmit() {
     return;
   }
   errors.value = {};
-  form.value = { name: "", email: "", phone: "", subject: "", description: "" };
+  isSubmitting.value = true;
+  try {
+    await emailjs.sendForm(
+      config.public.emailjsServiceId,
+      config.public.emailjsContactTemplateId,
+      formRef.value as HTMLFormElement,
+      { publicKey: config.public.emailjsPublicKey },
+    );
+    form.value = { name: "", email: "", phone: "", subject: "", description: "" };
+    notifications.create({
+      status: "success",
+      message: t("contact_success_message"),
+    });
+  }
+  catch {
+    notifications.create({
+      status: "error",
+      message: t("contact_error_message"),
+    });
+  }
+  finally {
+    isSubmitting.value = false;
+  }
 }
 </script>
 
@@ -54,7 +84,7 @@ function handleSubmit() {
   <section class="wrapper">
     <h1>{{ $t('contact') }}</h1>
 
-    <form novalidate @submit.prevent="handleSubmit">
+    <form ref="formRef" novalidate @submit.prevent="handleSubmit">
       <div>
         <label for="name">
           <span aria-hidden="true">▶</span>
@@ -63,7 +93,6 @@ function handleSubmit() {
         <input
           id="name"
           v-model="form.name"
-          type="text"
           autocomplete="name"
           :aria-invalid="!!errors.name || undefined"
           :aria-describedby="errors.name ? 'name-error' : undefined"
@@ -107,6 +136,21 @@ function handleSubmit() {
       </div>
 
       <div>
+        <label for="subject">
+          <span aria-hidden="true">▶</span>
+          {{ $t('contact_subject') }}
+        </label>
+        <input
+          id="subject"
+          v-model="form.subject"
+          :aria-invalid="!!errors.subject || undefined"
+          :aria-describedby="errors.subject ? 'subject-error' : undefined"
+          @blur="validateField('subject')"
+        >
+        <span v-if="errors.phone" id="subject-error" role="alert">{{ errors.phone }}</span>
+      </div>
+
+      <div>
         <label for="description">
           <span aria-hidden="true">▶</span>
           {{ $t('contact_message') }}
@@ -122,7 +166,7 @@ function handleSubmit() {
         <span v-if="errors.description" id="description-error" role="alert">{{ errors.description }}</span>
       </div>
 
-      <button>
+      <button :disabled="isSubmitting">
         {{ $t('contact_send') }}
       </button>
     </form>
