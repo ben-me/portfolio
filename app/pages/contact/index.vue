@@ -147,7 +147,7 @@ async function handleSubmit() {
           :aria-describedby="errors.subject ? 'subject-error' : undefined"
           @blur="validateField('subject')"
         >
-        <span v-if="errors.phone" id="subject-error" role="alert">{{ errors.phone }}</span>
+        <span v-if="errors.subject" id="subject-error" role="alert">{{ errors.phone }}</span>
       </div>
 
       <div>
@@ -167,6 +167,10 @@ async function handleSubmit() {
       </div>
 
       <button :disabled="isSubmitting">
+        <svg v-if="isSubmitting" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"><animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" />
+          </path>
+        </svg>
         {{ $t('contact_send') }}
       </button>
     </form>
@@ -181,6 +185,18 @@ section {
 }
 
 form {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   width: 100%;
   max-width: 56.25rem;
   background: var(--c-panel);
@@ -251,6 +267,7 @@ span[role="alert"] {
 }
 
 button {
+  position: relative;
   padding: 0.25rem 1.75rem 0.15rem;
   cursor: pointer;
   align-self: end;
@@ -261,6 +278,15 @@ button {
   font-size: var(--fs-1);
   background: var(--c-gold);
   color: var(--c-ink-900);
+
+  svg {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 1em;
+    height: 1em;
+    color: var(--c-ink-900);
+  }
 
   &:active {
     transform: translate(var(--offset), var(--offset));
@@ -274,6 +300,11 @@ button {
 
   &:hover {
     background: color-mix(in oklab, var(--c-gold) 75%, white);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    color: transparent;
   }
 }
 </style>

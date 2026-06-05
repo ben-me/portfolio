@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   runtimeConfig: {
     public: {
       emailjsServiceId: "",
@@ -40,7 +40,7 @@ export default defineNuxtConfig({
   },
   vite: {
     optimizeDeps: {
-      include: ["valibot"],
+      include: ["valibot", "valibot", "@emailjs/browser"],
     },
   },
 });
