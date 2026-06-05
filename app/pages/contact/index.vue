@@ -147,7 +147,7 @@ async function handleSubmit() {
           :aria-describedby="errors.subject ? 'subject-error' : undefined"
           @blur="validateField('subject')"
         >
-        <span v-if="errors.subject" id="subject-error" role="alert">{{ errors.phone }}</span>
+        <span v-if="errors.subject" id="subject-error" role="alert">{{ errors.subject }}</span>
       </div>
 
       <div>
