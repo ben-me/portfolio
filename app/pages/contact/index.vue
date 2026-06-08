@@ -94,9 +94,10 @@ async function handleSubmit() {
           id="name"
           v-model="form.name"
           autocomplete="name"
+          :placeholder="$t('contact_name_placeholder')"
           :aria-invalid="!!errors.name || undefined"
           :aria-describedby="errors.name ? 'name-error' : undefined"
-          @blur="validateField('name')"
+          @input="validateField('name')"
         >
         <span v-if="errors.name" id="name-error" role="alert">{{ errors.name }}</span>
       </div>
@@ -111,9 +112,10 @@ async function handleSubmit() {
           v-model="form.email"
           type="email"
           autocomplete="email"
+          :placeholder="$t('contact_email_placeholder')"
           :aria-invalid="!!errors.email || undefined"
           :aria-describedby="errors.email ? 'email-error' : undefined"
-          @blur="validateField('email')"
+          @input="validateField('email')"
         >
         <span v-if="errors.email" id="email-error" role="alert">{{ errors.email }}</span>
       </div>
@@ -128,9 +130,10 @@ async function handleSubmit() {
           v-model="form.phone"
           type="tel"
           autocomplete="tel"
+          :placeholder="$t('contact_phone_placeholder')"
           :aria-invalid="!!errors.phone || undefined"
           :aria-describedby="errors.phone ? 'phone-error' : undefined"
-          @blur="validateField('phone')"
+          @input="validateField('phone')"
         >
         <span v-if="errors.phone" id="phone-error" role="alert">{{ errors.phone }}</span>
       </div>
@@ -143,9 +146,10 @@ async function handleSubmit() {
         <input
           id="subject"
           v-model="form.subject"
+          :placeholder="$t('contact_subject_placeholder')"
           :aria-invalid="!!errors.subject || undefined"
           :aria-describedby="errors.subject ? 'subject-error' : undefined"
-          @blur="validateField('subject')"
+          @input="validateField('subject')"
         >
         <span v-if="errors.subject" id="subject-error" role="alert">{{ errors.subject }}</span>
       </div>
@@ -159,9 +163,10 @@ async function handleSubmit() {
           id="description"
           v-model="form.description"
           rows="5"
+          :placeholder="$t('contact_message_placeholder')"
           :aria-invalid="!!errors.description || undefined"
           :aria-describedby="errors.description ? 'description-error' : undefined"
-          @blur="validateField('description')"
+          @input="validateField('description')"
         />
         <span v-if="errors.description" id="description-error" role="alert">{{ errors.description }}</span>
       </div>
