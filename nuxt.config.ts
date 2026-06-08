@@ -13,6 +13,11 @@ export default defineNuxtConfig({
     layoutTransition: { name: "layout" },
   },
   typescript: {
+    tsConfig: {
+      compilerOptions: {
+        types: ["vitest/globals"],
+      },
+    },
     typeCheck: true,
   },
   postcss: {
@@ -30,7 +35,7 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ["@nuxt/image", "@nuxtjs/i18n", "@pinia/nuxt"],
+  modules: ["@nuxt/image", "@nuxtjs/i18n", "@pinia/nuxt", "@nuxt/test-utils/module"],
   i18n: {
     defaultLocale: "de",
     locales: [
