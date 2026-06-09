@@ -4,7 +4,6 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    globals: true,
     projects: [
       {
         test: {
@@ -15,6 +14,7 @@ export default defineConfig({
       },
       await defineVitestProject({
         test: {
+          globals: true,
           name: "nuxt",
           include: ["test/nuxt/*.{test,spec}.ts"],
           environment: "nuxt",
