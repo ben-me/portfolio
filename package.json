@@ -11,12 +11,19 @@
     "postinstall": "nuxt prepare",
     "prepare": "husky",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:unit": "vitest --project unit",
+    "test:nuxt": "vitest --project nuxt"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@nuxt/image": "2.0.0",
     "@nuxtjs/i18n": "10.4.0",
-    "nuxt": "^4.4.4",
+    "@pinia/nuxt": "0.11.3",
+    "nuxt": "~4.4.4",
+    "pinia": "^3.0.4",
     "valibot": "^1.4.0",
     "vue": "^3.5.34",
     "vue-router": "^5.0.6"
@@ -24,13 +31,19 @@
   "devDependencies": {
     "@antfu/eslint-config": "^8.2.0",
     "@csstools/postcss-global-data": "^4.0.0",
+    "@nuxt/test-utils": "^4.0.3",
+    "@types/node": "^25.9.1",
+    "@vue/test-utils": "^2.4.10",
     "eslint": "^10.3.0",
     "eslint-plugin-format": "^2.0.1",
+    "happy-dom": "^20.10.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
+    "playwright-core": "^1.60.0",
     "postcss-preset-env": "^11.2.1",
     "typescript": "^6.0.3",
     "vite": "^7.3.3",
+    "vitest": "^4.1.8",
     "vue-tsc": "^3.2.8"
   },
   "lint-staged": {

@@ -1,11 +1,23 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
-  devtools: { enabled: false },
+  devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      emailjsServiceId: "",
+      emailjsContactTemplateId: "",
+      emailjsPublicKey: "",
+    },
+  },
   css: ["./app/assets/css/style.css"],
   app: {
     layoutTransition: { name: "layout" },
   },
   typescript: {
+    tsConfig: {
+      compilerOptions: {
+        types: ["vitest/globals"],
+      },
+    },
     typeCheck: true,
   },
   postcss: {
@@ -23,7 +35,7 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ["@nuxt/image", "@nuxtjs/i18n"],
+  modules: ["@nuxt/image", "@nuxtjs/i18n", "@pinia/nuxt", "@nuxt/test-utils/module"],
   i18n: {
     defaultLocale: "de",
     locales: [
@@ -33,7 +45,7 @@ export default defineNuxtConfig({
   },
   vite: {
     optimizeDeps: {
-      include: ["valibot"],
+      include: ["valibot", "valibot", "@emailjs/browser"],
     },
   },
 });

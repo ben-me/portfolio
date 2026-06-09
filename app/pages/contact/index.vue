@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import emailjs from "@emailjs/browser";
 import * as v from "valibot";
 
 import type { ContactForm } from "#shared/schemas/contact";
 
 import { ContactSchema } from "#shared/schemas/contact";
+import { useNotificationsStore } from "~/store/notifications";
 
 type FormKey = keyof ContactForm;
 
@@ -16,6 +18,12 @@ const form = ref<ContactForm>({
 });
 
 const errors = ref<Partial<Record<FormKey, string>>>({});
+const formRef = useTemplateRef("formRef");
+const config = useRuntimeConfig();
+
+const isSubmitting = ref(false);
+const { t } = useI18n();
+const notifications = useNotificationsStore();
 
 function validateField(field: FormKey) {
   const value = form.value[field];
@@ -32,7 +40,7 @@ function validateField(field: FormKey) {
   }
 }
 
-function handleSubmit() {
+async function handleSubmit() {
   const result = v.safeParse(ContactSchema, form.value);
   if (!result.success) {
     const { nested = {} } = v.flatten<typeof ContactSchema>(result.issues);
@@ -46,7 +54,29 @@ function handleSubmit() {
     return;
   }
   errors.value = {};
-  form.value = { name: "", email: "", phone: "", subject: "", description: "" };
+  isSubmitting.value = true;
+  try {
+    await emailjs.sendForm(
+      config.public.emailjsServiceId,
+      config.public.emailjsContactTemplateId,
+      formRef.value as HTMLFormElement,
+      { publicKey: config.public.emailjsPublicKey },
+    );
+    form.value = { name: "", email: "", phone: "", subject: "", description: "" };
+    notifications.create({
+      status: "success",
+      message: t("contact_success_message"),
+    });
+  }
+  catch {
+    notifications.create({
+      status: "error",
+      message: t("contact_error_message"),
+    });
+  }
+  finally {
+    isSubmitting.value = false;
+  }
 }
 </script>
 
@@ -54,7 +84,7 @@ function handleSubmit() {
   <section class="wrapper">
     <h1>{{ $t('contact') }}</h1>
 
-    <form novalidate @submit.prevent="handleSubmit">
+    <form ref="formRef" novalidate @submit.prevent="handleSubmit">
       <div>
         <label for="name">
           <span aria-hidden="true">▶</span>
@@ -63,11 +93,11 @@ function handleSubmit() {
         <input
           id="name"
           v-model="form.name"
-          type="text"
           autocomplete="name"
+          :placeholder="$t('contact_name_placeholder')"
           :aria-invalid="!!errors.name || undefined"
           :aria-describedby="errors.name ? 'name-error' : undefined"
-          @blur="validateField('name')"
+          @input="validateField('name')"
         >
         <span v-if="errors.name" id="name-error" role="alert">{{ errors.name }}</span>
       </div>
@@ -82,9 +112,10 @@ function handleSubmit() {
           v-model="form.email"
           type="email"
           autocomplete="email"
+          :placeholder="$t('contact_email_placeholder')"
           :aria-invalid="!!errors.email || undefined"
           :aria-describedby="errors.email ? 'email-error' : undefined"
-          @blur="validateField('email')"
+          @input="validateField('email')"
         >
         <span v-if="errors.email" id="email-error" role="alert">{{ errors.email }}</span>
       </div>
@@ -99,11 +130,28 @@ function handleSubmit() {
           v-model="form.phone"
           type="tel"
           autocomplete="tel"
+          :placeholder="$t('contact_phone_placeholder')"
           :aria-invalid="!!errors.phone || undefined"
           :aria-describedby="errors.phone ? 'phone-error' : undefined"
-          @blur="validateField('phone')"
+          @input="validateField('phone')"
         >
         <span v-if="errors.phone" id="phone-error" role="alert">{{ errors.phone }}</span>
+      </div>
+
+      <div>
+        <label for="subject">
+          <span aria-hidden="true">▶</span>
+          {{ $t('contact_subject') }}
+        </label>
+        <input
+          id="subject"
+          v-model="form.subject"
+          :placeholder="$t('contact_subject_placeholder')"
+          :aria-invalid="!!errors.subject || undefined"
+          :aria-describedby="errors.subject ? 'subject-error' : undefined"
+          @input="validateField('subject')"
+        >
+        <span v-if="errors.subject" id="subject-error" role="alert">{{ errors.subject }}</span>
       </div>
 
       <div>
@@ -115,14 +163,19 @@ function handleSubmit() {
           id="description"
           v-model="form.description"
           rows="5"
+          :placeholder="$t('contact_message_placeholder')"
           :aria-invalid="!!errors.description || undefined"
           :aria-describedby="errors.description ? 'description-error' : undefined"
-          @blur="validateField('description')"
+          @input="validateField('description')"
         />
         <span v-if="errors.description" id="description-error" role="alert">{{ errors.description }}</span>
       </div>
 
-      <button>
+      <button :disabled="isSubmitting">
+        <svg v-if="isSubmitting" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"><animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" />
+          </path>
+        </svg>
         {{ $t('contact_send') }}
       </button>
     </form>
@@ -137,6 +190,18 @@ section {
 }
 
 form {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   width: 100%;
   max-width: 56.25rem;
   background: var(--c-panel);
@@ -207,6 +272,7 @@ span[role="alert"] {
 }
 
 button {
+  position: relative;
   padding: 0.25rem 1.75rem 0.15rem;
   cursor: pointer;
   align-self: end;
@@ -217,6 +283,15 @@ button {
   font-size: var(--fs-1);
   background: var(--c-gold);
   color: var(--c-ink-900);
+
+  svg {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 1em;
+    height: 1em;
+    color: var(--c-ink-900);
+  }
 
   &:active {
     transform: translate(var(--offset), var(--offset));
@@ -230,6 +305,11 @@ button {
 
   &:hover {
     background: color-mix(in oklab, var(--c-gold) 75%, white);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    color: transparent;
   }
 }
 </style>

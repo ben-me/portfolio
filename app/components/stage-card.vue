@@ -194,6 +194,7 @@ article.locked {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
+    justify-content: center;
   }
 
   li {
