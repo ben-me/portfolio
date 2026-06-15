@@ -4,7 +4,6 @@ import type { StageProps } from "~/components/stage-card.vue";
 const { t, locale } = useI18n();
 
 const stages = computed<StageProps[]>(() => [
-
   {
     stage: "1-4",
     title: "Simple Scale",
@@ -47,7 +46,6 @@ const stages = computed<StageProps[]>(() => [
     alt: $t("projects_stage_codepilots_alt"),
     url: "https://codepilots.de",
   },
-
 ]);
 </script>
 
