@@ -18,7 +18,6 @@ export default defineNuxtConfig({
         types: ["vitest/globals"],
       },
     },
-    typeCheck: true,
   },
   postcss: {
     plugins: {
