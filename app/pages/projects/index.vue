@@ -13,7 +13,8 @@ const stages = computed<StageProps[]>(() => [
     kind: "personal",
     tags: ["React Native", "SQLite", "Expo", "Drizzle ORM"],
     src: locale.value === "de" ? "/img/simple-scale-de.webp" : "/img/simple-scale-en.webp",
-    alt: "A headline and text on the left and screenshot of the simple scale app on the right.",
+    url: "https://play.google.com/store/apps/details?id=de.codepilots.simple_scale&pli=1",
+    alt: $t("projects_stage_simple_scale_alt"),
   },
   {
     stage: "1-3",
@@ -32,7 +33,7 @@ const stages = computed<StageProps[]>(() => [
     kind: "personal",
     tags: ["Vue", "Nuxt", "MapLibre", "TailwindCSS", "HTML"],
     src: "/img/demo-hair.webp",
-    alt: "Screenshot of the demo hair website homepage",
+    alt: $t("projects_stage_simple_scale_alt"),
     url: "https://demo-hair.codepilots.de/",
   },
   {
@@ -43,7 +44,7 @@ const stages = computed<StageProps[]>(() => [
     kind: "personal",
     tags: ["React", "TypeScript", "HTML", "CSS", "Vite", "Figma", "Docker"],
     src: "/img/codepilots.webp",
-    alt: "Screenshot of the codepilots homepage",
+    alt: $t("projects_stage_codepilots_alt"),
     url: "https://codepilots.de",
   },
 
@@ -53,7 +54,6 @@ const stages = computed<StageProps[]>(() => [
 <template>
   <section class="wrapper">
     <h1>{{ $t('projects') }}</h1>
-
     <ul>
       <li v-for="stage in stages" :key="stage.stage">
         <StageCard v-bind="stage" />
