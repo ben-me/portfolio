@@ -39,9 +39,11 @@
 
   h6,
   p,
-  li {
-    font-size: var(--fs-0);
+  li,
+  input,
+  textarea {
     font-family: system-ui, sans-serif;
+    font-size: var(--fs-0);
   }
 
   .sr-only {
