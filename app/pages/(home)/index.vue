@@ -95,9 +95,10 @@ section {
   h2 {
     font-family: "Jersey 10";
     font-size: var(--fs-3);
+    letter-spacing: 3px;
     max-width: 30ch;
     display: grid;
-    filter: var(--outline-light);
+    filter: var(--outline);
     color: var(--c-white);
 
     span {
