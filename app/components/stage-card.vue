@@ -83,6 +83,7 @@ article.locked {
   line-height: 1;
 
   @media (--md) {
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 0;
