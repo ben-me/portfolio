@@ -1,9 +1,17 @@
 <script setup lang="ts">
-import type { StageProps } from "~/components/stage-card.vue";
+import type { StageProps } from "@/components/stage-card.vue";
 
 const { t, locale } = useI18n();
 
 const stages = computed<StageProps[]>(() => [
+  {
+    stage: "1-5",
+    title: t("projects_stage_wip_title"),
+    description: t("projects_stage_wip_desc"),
+    status: "locked",
+    kind: "personal",
+    tags: ["Svelte", "TypeScript", "HTML", "CSS", "Vite", "PostgreSQL", "Docker", "Drizzle", "Better Auth"],
+  },
   {
     stage: "1-4",
     title: "Simple Scale",
