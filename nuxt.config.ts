@@ -36,6 +36,29 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxt/image", "@nuxtjs/i18n", "@pinia/nuxt", "@nuxt/test-utils/module"],
   i18n: {
+    customRoutes: "config",
+    pages: {
+      about: {
+        de: "/ueber",
+        en: "/about",
+      },
+      projects: {
+        de: "/projekte",
+        en: "/projects",
+      },
+      contact: {
+        de: "/kontakt",
+        en: "/contact",
+      },
+      imprint: {
+        de: "/impressum",
+        en: "/imprint",
+      },
+      privacy: {
+        de: "/datenschutz",
+        en: "/privacy",
+      },
+    },
     defaultLocale: "de",
     locales: [
       { code: "de", name: "Deutsch", file: "de.json" },

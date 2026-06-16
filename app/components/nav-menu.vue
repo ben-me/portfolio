@@ -30,7 +30,7 @@ const lastHoveredIndex = ref(0);
         :key="item.route"
       >
         <NuxtLinkLocale
-          :to="item.route"
+          :to="item.name"
           :class="{
             'is-active':
               props.orientation === 'horizontal' && currentBaseName === item.name,
