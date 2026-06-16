@@ -1,4 +1,8 @@
 @layer base {
+  html {
+    overflow-x: hidden;
+  }
+
   .wrapper {
     position: absolute;
     top: 0;

@@ -76,10 +76,17 @@ article.locked {
 
 .banner {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
   font-family: "Jersey 15";
   line-height: 1;
+
+  @media (--md) {
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+  }
 
   .stage {
     font-size: var(--fs-1);
@@ -157,9 +164,13 @@ article.locked {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  align-items: center;
-  text-align: center;
+  text-align: left;
   gap: 2rem;
+
+  @media (--md) {
+    text-align: center;
+    align-items: center;
+  }
 
   h2 {
     font-family: "Jersey 15";

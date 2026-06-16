@@ -25,13 +25,12 @@ const stages = computed<StageProps[]>(() => [
   },
   {
     stage: "1-3",
-    title: "Storyblok Projekt",
+    title: t("projects_stage_vi_title"),
     description: t("projects_stage_vi_desc"),
     status: "cleared",
     kind: "freelance",
     tags: ["Svelte", "Storyblok", "TypeScript", "REST", "Figma", "CI / CD"],
   },
-
   {
     stage: "1-2",
     title: "Demo Hair",
