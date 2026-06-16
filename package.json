@@ -42,7 +42,7 @@
     "playwright-core": "^1.60.0",
     "postcss-preset-env": "^11.2.1",
     "typescript": "^6.0.3",
-    "vite": "^7.3.3",
+    "vite": "^7.3.5",
     "vitest": "^4.1.8",
     "vue-tsc": "^3.2.8"
   },
