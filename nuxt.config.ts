@@ -8,7 +8,7 @@ export default defineNuxtConfig({
       emailjsPublicKey: "",
     },
   },
-  css: ["./app/assets/css/style.css"],
+  css: ["~/assets/css/style.css"],
   app: {
     layoutTransition: { name: "layout" },
   },

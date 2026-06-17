@@ -8,7 +8,7 @@ trustPolicyExclude:
 
 overrides:
   shell-quote: ^1.8.4
-  vite: ^7.3.5
+  vite: ^8.0.16
 
 onlyBuiltDependencies:
   - "@parcel/watcher"
