@@ -23,8 +23,8 @@ const lastHoveredIndex = ref(0);
 </script>
 
 <template>
-  <nav :class="props.orientation">
-    <ul>
+  <nav>
+    <ul :class="props.orientation">
       <li
         v-for="(item, index) in navItems"
         :key="item.route"
@@ -32,9 +32,7 @@ const lastHoveredIndex = ref(0);
         <NuxtLinkLocale
           :to="item.name"
           :class="{
-            'is-active':
-              props.orientation === 'horizontal' && currentBaseName === item.name,
-            'cursor-hover': index === lastHoveredIndex,
+            'cursor-hover': orientation === 'vertical' && index === lastHoveredIndex,
           }"
           @mouseenter="lastHoveredIndex = index"
           @focus="lastHoveredIndex = index"
@@ -48,14 +46,29 @@ const lastHoveredIndex = ref(0);
 
 <style scoped>
 nav {
+  width: 100%;
   font-family: var(--ff-mono);
   font-weight: 700;
 
   ul {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     padding: 0;
     margin: 0;
+
+    &.vertical {
+      flex-direction: column;
+    }
+
+    &.horizontal {
+      width: 100%;
+      justify-content: center;
+
+      @media (--lg) {
+        justify-content: space-around;
+      }
+    }
   }
 
   li {
@@ -64,8 +77,19 @@ nav {
   }
 
   a {
+    display: inline-block;
+    font-family: "Jersey 10";
+    color: var(--c-white);
     text-decoration: none;
-    padding: 0.25rem 0.5rem;
+    letter-spacing: 0.1em;
+    padding-inline: 0.75rem;
+    filter: var(--outline-light);
+    transition: color 0.2s;
+    font-size: var(--fs-2);
+
+    &.router-link-active {
+      color: var(--c-gold);
+    }
 
     &:hover {
       color: var(--c-gold);
@@ -74,30 +98,10 @@ nav {
     &:focus-visible {
       outline: 2px dashed var(--c-black);
     }
-  }
-
-  &.vertical {
-    ul {
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    a {
-      font-family: "Jersey 10";
-      font-size: var(--fs-1);
-      color: var(--c-white);
-      filter: var(--outline-light);
-      letter-spacing: 0.1em;
-      transition: color 0.2s;
-      color: var(--c-gold);
-    }
 
     @media (--lg) {
-      a {
-        color: var(--c-white);
-      }
-
-      .cursor-hover {
+      &.router-link-active,
+      &.cursor-hover {
         color: var(--c-gold);
 
         &::before {
@@ -113,37 +117,6 @@ nav {
           @media (prefers-reduced-motion: no-preference) {
             animation: nav-cursor 1s ease-in-out infinite;
           }
-        }
-      }
-    }
-  }
-
-  &.horizontal {
-    display: flex;
-    width: 100%;
-
-    ul {
-      width: 100%;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.75rem;
-
-      @media (--lg) {
-        justify-content: space-around;
-      }
-
-      a {
-        color: var(--c-black);
-
-        @media (--lg) {
-          padding: 0.25rem 1rem;
-        }
-
-        &.is-active {
-          background: var(--c-gold);
-          box-shadow:
-            inset 2px 2px 0 0 color-mix(in oklab, var(--c-gold) 70%, white),
-            inset -2px -2px 0 0 color-mix(in oklab, var(--c-gold) 60%, black);
         }
       }
     }
