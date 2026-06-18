@@ -55,6 +55,7 @@ nav {
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
+    gap: 0.5rem;
     margin: 0;
 
     &.vertical {
@@ -81,11 +82,11 @@ nav {
     font-family: "Jersey 10";
     color: var(--c-white);
     text-decoration: none;
-    letter-spacing: 0.1em;
+    letter-spacing: 2.5px;
     padding-inline: 0.75rem;
-    filter: var(--outline-light);
+    filter: var(--outline);
     transition: color 0.2s;
-    font-size: var(--fs-2);
+    font-size: var(--fs-1);
 
     &.router-link-active {
       color: var(--c-gold);
