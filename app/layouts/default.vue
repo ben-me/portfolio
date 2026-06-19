@@ -17,6 +17,9 @@ const newPath = computed(() => route.path);
       <NuxtLinkLocale v-if="locale === 'de' && newPath !== '/impressum'" to="impressum">
         Impressum
       </NuxtLinkLocale>
+      <NuxtLinkLocale v-if="locale === 'de' && newPath !== '/datenschutz'" to="datenschutz">
+        Datenschutz
+      </NuxtLinkLocale>
     </footer>
   </div>
 </template>
@@ -38,7 +41,7 @@ main {
   padding-block: 1rem;
 }
 
-a {
+footer {
   animation: fade 0.5s ease 300ms both;
 }
 

@@ -11,6 +11,9 @@ const { locale } = useI18n();
       <NuxtLinkLocale v-if="locale === 'de'" to="impressum">
         Impressum
       </NuxtLinkLocale>
+      <NuxtLinkLocale v-if="locale === 'de'" to="datenschutz">
+        Datenschutz
+      </NuxtLinkLocale>
     </footer>
   </div>
 </template>
@@ -28,7 +31,6 @@ main {
 }
 
 footer {
-  padding: 0.25rem 1rem;
   animation: fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 4s both;
 
   a {

@@ -14,7 +14,7 @@
     </strong>
 
     <article>
-      <h3>Kontakt</h3>
+      <h2>Kontakt</h2>
       <p>
         Telefon: <a href="tel:+4915563528458">+49 (0) 155 635 284 58</a>
         <br>
@@ -24,7 +24,7 @@
     </article>
 
     <article>
-      <h3>EU-Streitschlichtung</h3>
+      <h2>EU-Streitschlichtung</h2>
       <p>
         Die Europ&auml;ische Kommission stellt eine Plattform zur
         Online-Streitbeilegung (OS) bereit:{' '}
@@ -40,9 +40,9 @@
     </article>
 
     <article>
-      <h3>
+      <h2>
         Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle
-      </h3>
+      </h2>
       <p>
         Wir sind nicht bereit oder verpflichtet, an
         Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
@@ -51,10 +51,10 @@
     </article>
 
     <article>
-      <h3>
+      <h2>
         Zentrale Kontaktstelle nach dem Digital Services Act - DSA
         (Verordnung (EU) 2022/265)
-      </h3>
+      </h2>
       <p>
         Unsere zentrale Kontaktstelle f&uuml;r Nutzer und Beh&ouml;rden
         nach Art. 11, 12 DSA erreichen Sie wie folgt:
@@ -84,7 +84,7 @@ h1 {
   font-family: system-ui, sans-serif;
 }
 
-h3 {
+h2 {
   margin-block: 0.5rem 0.25rem;
   font-size: var(--fs-2);
 }
