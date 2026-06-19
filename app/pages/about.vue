@@ -79,13 +79,6 @@ const experiences = computed(() => [
 </template>
 
 <style scoped>
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
-}
-
 .arena {
   display: flex;
   flex-direction: column;

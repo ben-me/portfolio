@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const transition = useState<{ name: string } | false>("page-transition", () => ({ name: "slide-left" }));
+import type { TransitionProps } from "vue";
+
+const transition = useState<TransitionProps | false>("page-transition", () => ({ name: "slide-left", mode: "out-in" }));
 
 if (import.meta.client) {
   const router = useRouter();
@@ -15,7 +17,7 @@ if (import.meta.client) {
     const fromIdx = pages.findIndex(page => page.name === fromName);
     if (toIdx === -1 || fromIdx === -1)
       return;
-    transition.value = { name: toIdx < fromIdx ? "slide-right" : "slide-left" };
+    transition.value = { name: toIdx < fromIdx ? "slide-right" : "slide-left", mode: "out-in" };
   });
 }
 </script>

@@ -4,10 +4,9 @@
   }
 
   .wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    display: grid;
+    justify-items: center;
+    gap: 1.25rem;
     max-width: 75rem;
     margin-inline: auto;
     padding: 1rem;
@@ -21,6 +20,7 @@
     font-size: var(--fs-5);
     font-family: "Jersey 10";
     line-height: 0.8;
+    letter-spacing: 0.25rem;
     color: var(--c-cream-300);
     filter: var(--outline);
   }

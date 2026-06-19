@@ -68,13 +68,6 @@ const stages = computed<StageProps[]>(() => [
 </template>
 
 <style scoped>
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
 ul {
   list-style: none;
   padding: 0;

@@ -75,8 +75,6 @@
   --fs-3: clamp(2.3686rem, 1.7519rem + 2.741vw, 4.2188rem);
   --fs-4: clamp(3.1573rem, 2.1004rem + 4.6975vw, 6.3281rem);
   --fs-5: clamp(4.2087rem, 2.4476rem + 7.8273vw, 9.4922rem);
-
-  --ff-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 @font-face {

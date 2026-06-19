@@ -27,7 +27,12 @@ section {
   display: grid;
   gap: 1rem;
   justify-items: center;
-  max-width: 75rem;
+  overflow: hidden;
+  width: 100%;
+
+  @media --xl {
+    max-width: 75rem;
+  }
 
   @media (prefers-reduced-motion: no-preference) {
     nav {
@@ -48,11 +53,6 @@ section {
     line-height: 0.78;
     transform: skewX(-18deg);
     filter: var(--outline);
-    width: max-content;
-
-    @media --md {
-      text-transform: lowercase;
-    }
 
     span {
       display: inline-block;
@@ -94,14 +94,16 @@ section {
 
   h2 {
     font-family: "Jersey 10";
-    font-size: var(--fs-2);
+    font-size: var(--fs-3);
     letter-spacing: 3px;
     max-width: 30ch;
     display: grid;
+    justify-items: center;
     filter: var(--outline);
     color: var(--c-cream-300);
 
     span {
+      max-width: 80%;
       grid-area: 1 / 1;
 
       @media (prefers-reduced-motion: no-preference) {

@@ -47,8 +47,6 @@ const lastHoveredIndex = ref(0);
 <style scoped>
 nav {
   width: 100%;
-  font-family: var(--ff-mono);
-  font-weight: 700;
 
   ul {
     display: flex;
@@ -75,6 +73,10 @@ nav {
   li {
     position: relative;
     text-align: center;
+
+    & + li {
+      margin-block-start: 0.25rem;
+    }
   }
 
   a {
@@ -86,7 +88,7 @@ nav {
     padding-inline: 0.75rem;
     filter: var(--outline);
     transition: color 0.2s;
-    font-size: var(--fs-1);
+    font-size: var(--fs-2);
 
     &.router-link-active {
       color: var(--c-gold);
@@ -101,6 +103,8 @@ nav {
     }
 
     @media (--lg) {
+      font-size: var(--fs-1);
+
       &.router-link-active,
       &.cursor-hover {
         color: var(--c-gold);

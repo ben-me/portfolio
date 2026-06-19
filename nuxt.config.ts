@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   },
   css: ["~/assets/css/style.css"],
   app: {
-    layoutTransition: { name: "layout" },
+    layoutTransition: { name: "layout", mode: "out-in" },
   },
   typescript: {
     tsConfig: {
@@ -49,14 +49,6 @@ export default defineNuxtConfig({
       contact: {
         de: "/kontakt",
         en: "/contact",
-      },
-      imprint: {
-        de: "/impressum",
-        en: "/imprint",
-      },
-      privacy: {
-        de: "/datenschutz",
-        en: "/privacy",
       },
     },
     defaultLocale: "de",
