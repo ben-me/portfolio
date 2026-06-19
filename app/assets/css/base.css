@@ -3,16 +3,33 @@
     overflow-x: hidden;
   }
 
+  body {
+    font-family: system-ui, sans-serif;
+  }
+
   .wrapper {
     display: grid;
     justify-items: center;
     gap: 1.25rem;
     max-width: 75rem;
     margin-inline: auto;
-    padding: 1rem;
+    padding-inline: 1rem;
 
     @media (--xl) {
       padding-inline: 0;
+    }
+  }
+
+  footer {
+    padding: 0 1rem 1rem 1rem;
+
+    a {
+      text-decoration: none;
+      color: var(--c-black);
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -46,7 +63,6 @@
   li,
   input,
   textarea {
-    font-family: system-ui, sans-serif;
     font-size: var(--fs-0);
   }
 

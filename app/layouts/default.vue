@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const { locale } = useI18n();
+const route = useRoute();
+
+const newPath = computed(() => route.path);
 </script>
 
 <template>
@@ -11,7 +14,7 @@ const { locale } = useI18n();
       <slot />
     </main>
     <footer>
-      <NuxtLinkLocale v-if="locale === 'de'" to="impressum">
+      <NuxtLinkLocale v-if="locale === 'de' && newPath !== '/impressum'" to="impressum">
         Impressum
       </NuxtLinkLocale>
     </footer>
@@ -31,9 +34,20 @@ header {
   margin-block: 0.25rem;
 }
 
-footer {
-  a {
-    color: black;
+main {
+  padding-block: 1rem;
+}
+
+a {
+  animation: fade 0.5s ease 300ms both;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 </style>

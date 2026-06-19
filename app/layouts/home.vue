@@ -26,4 +26,23 @@ main {
   display: grid;
   place-items: center;
 }
+
+footer {
+  padding: 0.25rem 1rem;
+  animation: fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 4s both;
+
+  a {
+    text-decoration: none;
+    color: var(--c-black);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 </style>

@@ -52,8 +52,8 @@ nav {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    padding: 0;
     gap: 0.5rem;
+    padding: 0 1rem;
     margin: 0;
 
     &.vertical {
@@ -63,9 +63,10 @@ nav {
     &.horizontal {
       width: 100%;
       justify-content: center;
+      align-items: end;
 
       @media (--lg) {
-        justify-content: space-around;
+        justify-content: space-between;
       }
     }
   }
@@ -73,10 +74,6 @@ nav {
   li {
     position: relative;
     text-align: center;
-
-    & + li {
-      margin-block-start: 0.25rem;
-    }
   }
 
   a {
@@ -100,6 +97,10 @@ nav {
 
     &:focus-visible {
       outline: 2px dashed var(--c-black);
+    }
+
+    @media --md {
+      padding-inline: 0;
     }
 
     @media (--lg) {
