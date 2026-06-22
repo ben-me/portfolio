@@ -25,6 +25,11 @@ const isSubmitting = ref(false);
 const { t } = useI18n();
 const notifications = useNotificationsStore();
 
+useSeoMeta({
+  title: t("contact_title"),
+  description: t("contact_meta_description"),
+});
+
 function validateField(field: FormKey) {
   const value = form.value[field];
   if (typeof value === "string" && !value.trim()) {

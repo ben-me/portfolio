@@ -20,6 +20,11 @@ const experiences = computed(() => [
   t("about_exp_seo"),
   t("about_exp_postgresql"),
 ]);
+
+useSeoMeta({
+  title: t("about_title"),
+  description: t("about_meta_description"),
+});
 </script>
 
 <template>

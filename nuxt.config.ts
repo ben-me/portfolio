@@ -10,6 +10,12 @@ export default defineNuxtConfig({
   },
   css: ["~/assets/css/style.css"],
   app: {
+    head: {
+      title: "Ben M - Frontendentwickler",
+      htmlAttrs: {
+        lang: "de",
+      },
+    },
     layoutTransition: { name: "layout", mode: "out-in" },
   },
   typescript: {
@@ -52,9 +58,10 @@ export default defineNuxtConfig({
       },
     },
     defaultLocale: "de",
+    baseUrl: "http:localhost:3000",
     locales: [
-      { code: "de", name: "Deutsch", file: "de.json" },
-      { code: "en", name: "English", file: "en.json" },
+      { code: "de", name: "Deutsch", file: "de.json", language: "de-DE" },
+      { code: "en", name: "English", file: "en.json", language: "en-US" },
     ],
   },
   vite: {

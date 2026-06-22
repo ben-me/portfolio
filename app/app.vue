@@ -3,6 +3,14 @@ import type { TransitionProps } from "vue";
 
 const transition = useState<TransitionProps | false>("page-transition", () => ({ name: "slide-left", mode: "out-in" }));
 
+useHead({
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} - Ben M` : "Ben - M";
+  },
+});
+
+const head = useLocaleHead();
+
 if (import.meta.client) {
   const router = useRouter();
   const getRouteBaseName = useRouteBaseName();
@@ -23,12 +31,14 @@ if (import.meta.client) {
 </script>
 
 <template>
-  <NuxtImg src="/img/herobg.webp" />
-  <NuxtLayout>
-    <NuxtPage :transition="transition" />
-  </NuxtLayout>
-  <Notification />
-  <LanguageSwitcher />
+  <Html :dir="head.htmlAttrs.dir" :lang="head.htmlAttrs.lang">
+    <NuxtImg src="/img/herobg.webp" />
+    <NuxtLayout>
+      <NuxtPage :transition="transition" />
+    </NuxtLayout>
+    <Notification />
+    <LanguageSwitcher />
+  </Html>
 </template>
 
 <style scoped>

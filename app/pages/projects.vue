@@ -3,6 +3,11 @@ import type { StageProps } from "@/components/stage-card.vue";
 
 const { t, locale } = useI18n();
 
+useSeoMeta({
+  title: t("projects_title"),
+  description: t("projects_meta_description"),
+});
+
 const stages = computed<StageProps[]>(() => [
   {
     stage: "1-5",

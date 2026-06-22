@@ -1,5 +1,10 @@
 <script setup lang="ts">
+const { t } = useI18n();
 definePageMeta({ layout: "home", layoutTransition: { name: "home" } });
+useSeoMeta({
+  title: "Homepage",
+  description: t("home_meta_description"),
+});
 </script>
 
 <template>
