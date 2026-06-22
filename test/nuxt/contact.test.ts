@@ -1,7 +1,7 @@
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 import { flushPromises } from "@vue/test-utils";
 
-import ContactPage from "../../app/pages/contact/index.vue";
+import ContactPage from "../../app/pages/contact.vue";
 import { useNotificationsStore } from "../../app/store/notifications";
 
 // emailjs is the only real side effect of handleSubmit — stub it so we can
