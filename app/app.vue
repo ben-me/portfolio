@@ -36,7 +36,9 @@ if (import.meta.client) {
     <NuxtLayout>
       <NuxtPage :transition="transition" />
     </NuxtLayout>
-    <Notification />
+    <ClientOnly>
+      <Notification />
+    </ClientOnly>
     <LanguageSwitcher />
   </Html>
 </template>
