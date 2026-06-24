@@ -104,7 +104,7 @@ async function handleSubmit() {
           :aria-describedby="errors.name ? 'name-error' : undefined"
           @input="validateField('name')"
         >
-        <span v-if="errors.name" id="name-error" role="alert">{{ errors.name }}</span>
+        <span v-if="errors.name" id="name-error" role="alert">{{ t(errors.name) }}</span>
       </div>
 
       <div>
@@ -122,7 +122,7 @@ async function handleSubmit() {
           :aria-describedby="errors.email ? 'email-error' : undefined"
           @input="validateField('email')"
         >
-        <span v-if="errors.email" id="email-error" role="alert">{{ errors.email }}</span>
+        <span v-if="errors.email" id="email-error" role="alert">{{ t(errors.email) }}</span>
       </div>
 
       <div>
@@ -140,7 +140,7 @@ async function handleSubmit() {
           :aria-describedby="errors.phone ? 'phone-error' : undefined"
           @input="validateField('phone')"
         >
-        <span v-if="errors.phone" id="phone-error" role="alert">{{ errors.phone }}</span>
+        <span v-if="errors.phone" id="phone-error" role="alert">{{ t(errors.phone) }}</span>
       </div>
 
       <div>
@@ -156,7 +156,7 @@ async function handleSubmit() {
           :aria-describedby="errors.subject ? 'subject-error' : undefined"
           @input="validateField('subject')"
         >
-        <span v-if="errors.subject" id="subject-error" role="alert">{{ errors.subject }}</span>
+        <span v-if="errors.subject" id="subject-error" role="alert">{{ t(errors.subject) }}</span>
       </div>
 
       <div>
@@ -173,7 +173,7 @@ async function handleSubmit() {
           :aria-describedby="errors.description ? 'description-error' : undefined"
           @input="validateField('description')"
         />
-        <span v-if="errors.description" id="description-error" role="alert">{{ errors.description }}</span>
+        <span v-if="errors.description" id="description-error" role="alert">{{ t(errors.description) }}</span>
       </div>
 
       <button :disabled="isSubmitting">
