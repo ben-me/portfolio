@@ -28,7 +28,7 @@
         <h2>EU-Streitschlichtung</h2>
         <p>
           Die Europ&auml;ische Kommission stellt eine Plattform zur
-          Online-Streitbeilegung (OS) bereit:{' '}
+          Online-Streitbeilegung (OS) bereit:
           <a
             href="https://ec.europa.eu/consumers/odr/"
             target="_blank"
