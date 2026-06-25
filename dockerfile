@@ -10,10 +10,10 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-FROM nginx:alpine AS prod
-
 RUN pnpm nuxt build --prerender
 
-COPY --from=build /src/dist/client/ /usr/share/nginx/html
+FROM nginx:alpine AS prod
+
+COPY --from=base /src/.output/public/ /usr/share/nginx/html
 
 EXPOSE 80
