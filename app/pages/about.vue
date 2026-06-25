@@ -28,59 +28,61 @@ useSeoMeta({
 </script>
 
 <template>
-  <section class="wrapper">
-    <h1>{{ $t('about') }}</h1>
+  <div class="page-wrapper">
+    <section class="wrapper">
+      <h1>{{ $t('about') }}</h1>
 
-    <div class="arena">
-      <div class="portrait">
-        <div class="frame">
-          <NuxtImg src="/img/ben.webp" :alt="$t('about_portrait_alt')" />
+      <div class="arena">
+        <div class="portrait">
+          <div class="frame">
+            <NuxtImg src="/img/ben.webp" :alt="$t('about_portrait_alt')" />
+          </div>
+          <span class="tag" aria-hidden="true">{{ $t('about_player_one') }}</span>
         </div>
-        <span class="tag" aria-hidden="true">{{ $t('about_player_one') }}</span>
-      </div>
 
-      <div class="stats">
-        <div>
-          <p class="name">
-            Benedikt Mehler
-          </p>
-          <p class="job-title">
-            {{ $t('about_job_title') }}
-          </p>
+        <div class="stats">
+          <div>
+            <p class="name">
+              Benedikt Mehler
+            </p>
+            <p class="job-title">
+              {{ $t('about_job_title') }}
+            </p>
+          </div>
+          <section>
+            <h2>{{ $t('about_skills') }}</h2>
+            <dl class="bars">
+              <div
+                v-for="(skill) in skills"
+                :key="skill.label"
+                :data-skill="('dataKey' in skill ? skill.dataKey : skill.label.toLowerCase())"
+                :style="{ '--pct': skill.value }"
+              >
+                <dt>
+                  <span class="label">{{ skill.label }}</span>
+                  <span class="value" aria-hidden="true">{{ skill.value / 10 }}<small>/10</small></span>
+                </dt>
+                <dd>
+                  <meter :value="skill.value" min="0" max="100" class="sr-only">
+                    {{ skill.value }}/100
+                  </meter>
+                </dd>
+              </div>
+            </dl>
+          </section>
+          <section class="inventory">
+            <h2>{{ $t('about_experience_with') }}</h2>
+            <ul>
+              <li v-for="(experience, i) in experiences" :key="experience" :style="{ '--i': i }">
+                <span class="icon" aria-hidden="true">◆</span>
+                <span class="label">{{ experience }}</span>
+              </li>
+            </ul>
+          </section>
         </div>
-        <section>
-          <h2>{{ $t('about_skills') }}</h2>
-          <dl class="bars">
-            <div
-              v-for="(skill) in skills"
-              :key="skill.label"
-              :data-skill="('dataKey' in skill ? skill.dataKey : skill.label.toLowerCase())"
-              :style="{ '--pct': skill.value }"
-            >
-              <dt>
-                <span class="label">{{ skill.label }}</span>
-                <span class="value" aria-hidden="true">{{ skill.value / 10 }}<small>/10</small></span>
-              </dt>
-              <dd>
-                <meter :value="skill.value" min="0" max="100" class="sr-only">
-                  {{ skill.value }}/100
-                </meter>
-              </dd>
-            </div>
-          </dl>
-        </section>
-        <section class="inventory">
-          <h2>{{ $t('about_experience_with') }}</h2>
-          <ul>
-            <li v-for="(experience, i) in experiences" :key="experience" :style="{ '--i': i }">
-              <span class="icon" aria-hidden="true">◆</span>
-              <span class="label">{{ experience }}</span>
-            </li>
-          </ul>
-        </section>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <style scoped>

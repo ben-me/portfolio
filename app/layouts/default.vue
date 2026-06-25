@@ -38,6 +38,7 @@ header {
 }
 
 main {
+  position: relative;
   padding-block: 1rem;
 }
 

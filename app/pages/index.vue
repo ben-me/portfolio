@@ -11,9 +11,13 @@ useSeoMeta({
   <section>
     <div class="hero">
       <h1>
-        <span>Benedikt</span>
+        <div>
+          <span>Benedikt</span>
+        </div>
         <br>
-        <span>Mehler</span>
+        <div>
+          <span>Mehler</span>
+        </div>
       </h1>
       <h2>
         <span aria-hidden="true">{{ $t('home_tagline') }}</span>
@@ -29,6 +33,10 @@ useSeoMeta({
 
 <style scoped>
 section {
+  --first-animation: 1.2s;
+  --second-animation: calc(var(--first-animation) + 0.6s);
+  --third-animation: calc(var(--second-animation) + 0.6s);
+  --fourth-animation: calc(var(--third-animation) + 0.6s);
   display: grid;
   gap: 1rem;
   justify-items: center;
@@ -41,7 +49,7 @@ section {
 
   @media (prefers-reduced-motion: no-preference) {
     nav {
-      animation: fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 3.2s both;
+      animation: fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) var(--third-animation) both;
     }
   }
 }
@@ -78,10 +86,13 @@ section {
       );
       background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
 
+    div {
+      display: inline-block;
       @media (prefers-reduced-motion: no-preference) {
         animation-duration: 0.5s;
-        animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+        animation-timing-function: ease-in;
         animation-fill-mode: both;
 
         &:first-of-type {
@@ -115,7 +126,7 @@ section {
         animation-duration: 0.8s;
         animation-timing-function: ease-in;
         animation-fill-mode: both;
-        animation-delay: 1.5s;
+        animation-delay: var(--first-animation);
 
         &:first-child {
           animation-name: slide-in-left;
@@ -136,7 +147,7 @@ p {
 
   @media (prefers-reduced-motion: no-preference) {
     opacity: 0;
-    animation: press-start-blink 2s linear 3.8s infinite;
+    animation: press-start-blink 2s linear var(--fourth-animation) infinite;
   }
 }
 

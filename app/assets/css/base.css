@@ -7,6 +7,10 @@
     font-family: system-ui, sans-serif;
   }
 
+  .page-wrapper {
+    width: 100vw;
+  }
+
   .wrapper {
     display: grid;
     justify-items: center;
@@ -38,7 +42,6 @@
   h1 {
     font-size: var(--fs-5);
     font-family: "Jersey 10";
-    line-height: 0.8;
     letter-spacing: 0.25rem;
     color: var(--c-cream-300);
     filter: var(--outline);

@@ -86,114 +86,110 @@ async function handleSubmit() {
 </script>
 
 <template>
-  <section class="wrapper">
-    <h1>{{ $t('contact') }}</h1>
+  <div class="page-wrapper">
+    <section class="wrapper">
+      <h1>{{ $t('contact') }}</h1>
 
-    <form ref="formRef" novalidate @submit.prevent="handleSubmit">
-      <div>
-        <label for="name">
-          <span aria-hidden="true">▶</span>
-          {{ $t('contact_name') }}
-        </label>
-        <input
-          id="name"
-          v-model="form.name"
-          autocomplete="name"
-          :placeholder="$t('contact_name_placeholder')"
-          :aria-invalid="!!errors.name || undefined"
-          :aria-describedby="errors.name ? 'name-error' : undefined"
-          @input="validateField('name')"
-        >
-        <span v-if="errors.name" id="name-error" role="alert">{{ t(errors.name) }}</span>
-      </div>
+      <form ref="formRef" novalidate @submit.prevent="handleSubmit">
+        <div>
+          <label for="name">
+            <span aria-hidden="true">▶</span>
+            {{ $t('contact_name') }}
+          </label>
+          <input
+            id="name"
+            v-model="form.name"
+            autocomplete="name"
+            :placeholder="$t('contact_name_placeholder')"
+            :aria-invalid="!!errors.name || undefined"
+            :aria-describedby="errors.name ? 'name-error' : undefined"
+            @input="validateField('name')"
+          >
+          <span v-if="errors.name" id="name-error" role="alert">{{ t(errors.name) }}</span>
+        </div>
 
-      <div>
-        <label for="email">
-          <span aria-hidden="true">▶</span>
-          {{ $t('contact_email') }}
-        </label>
-        <input
-          id="email"
-          v-model="form.email"
-          type="email"
-          autocomplete="email"
-          :placeholder="$t('contact_email_placeholder')"
-          :aria-invalid="!!errors.email || undefined"
-          :aria-describedby="errors.email ? 'email-error' : undefined"
-          @input="validateField('email')"
-        >
-        <span v-if="errors.email" id="email-error" role="alert">{{ t(errors.email) }}</span>
-      </div>
+        <div>
+          <label for="email">
+            <span aria-hidden="true">▶</span>
+            {{ $t('contact_email') }}
+          </label>
+          <input
+            id="email"
+            v-model="form.email"
+            type="email"
+            autocomplete="email"
+            :placeholder="$t('contact_email_placeholder')"
+            :aria-invalid="!!errors.email || undefined"
+            :aria-describedby="errors.email ? 'email-error' : undefined"
+            @input="validateField('email')"
+          >
+          <span v-if="errors.email" id="email-error" role="alert">{{ t(errors.email) }}</span>
+        </div>
 
-      <div>
-        <label for="phone">
-          <span aria-hidden="true">▶</span>
-          {{ $t('contact_phone') }}
-        </label>
-        <input
-          id="phone"
-          v-model="form.phone"
-          type="tel"
-          autocomplete="tel"
-          :placeholder="$t('contact_phone_placeholder')"
-          :aria-invalid="!!errors.phone || undefined"
-          :aria-describedby="errors.phone ? 'phone-error' : undefined"
-          @input="validateField('phone')"
-        >
-        <span v-if="errors.phone" id="phone-error" role="alert">{{ t(errors.phone) }}</span>
-      </div>
+        <div>
+          <label for="phone">
+            <span aria-hidden="true">▶</span>
+            {{ $t('contact_phone') }}
+          </label>
+          <input
+            id="phone"
+            v-model="form.phone"
+            type="tel"
+            autocomplete="tel"
+            :placeholder="$t('contact_phone_placeholder')"
+            :aria-invalid="!!errors.phone || undefined"
+            :aria-describedby="errors.phone ? 'phone-error' : undefined"
+            @input="validateField('phone')"
+          >
+          <span v-if="errors.phone" id="phone-error" role="alert">{{ t(errors.phone) }}</span>
+        </div>
 
-      <div>
-        <label for="subject">
-          <span aria-hidden="true">▶</span>
-          {{ $t('contact_subject') }}
-        </label>
-        <input
-          id="subject"
-          v-model="form.subject"
-          :placeholder="$t('contact_subject_placeholder')"
-          :aria-invalid="!!errors.subject || undefined"
-          :aria-describedby="errors.subject ? 'subject-error' : undefined"
-          @input="validateField('subject')"
-        >
-        <span v-if="errors.subject" id="subject-error" role="alert">{{ t(errors.subject) }}</span>
-      </div>
+        <div>
+          <label for="subject">
+            <span aria-hidden="true">▶</span>
+            {{ $t('contact_subject') }}
+          </label>
+          <input
+            id="subject"
+            v-model="form.subject"
+            :placeholder="$t('contact_subject_placeholder')"
+            :aria-invalid="!!errors.subject || undefined"
+            :aria-describedby="errors.subject ? 'subject-error' : undefined"
+            @input="validateField('subject')"
+          >
+          <span v-if="errors.subject" id="subject-error" role="alert">{{ t(errors.subject) }}</span>
+        </div>
 
-      <div>
-        <label for="description">
-          <span aria-hidden="true">▶</span>
-          {{ $t('contact_message') }}
-        </label>
-        <textarea
-          id="description"
-          v-model="form.description"
-          rows="5"
-          :placeholder="$t('contact_message_placeholder')"
-          :aria-invalid="!!errors.description || undefined"
-          :aria-describedby="errors.description ? 'description-error' : undefined"
-          @input="validateField('description')"
-        />
-        <span v-if="errors.description" id="description-error" role="alert">{{ t(errors.description) }}</span>
-      </div>
+        <div>
+          <label for="description">
+            <span aria-hidden="true">▶</span>
+            {{ $t('contact_message') }}
+          </label>
+          <textarea
+            id="description"
+            v-model="form.description"
+            rows="5"
+            :placeholder="$t('contact_message_placeholder')"
+            :aria-invalid="!!errors.description || undefined"
+            :aria-describedby="errors.description ? 'description-error' : undefined"
+            @input="validateField('description')"
+          />
+          <span v-if="errors.description" id="description-error" role="alert">{{ t(errors.description) }}</span>
+        </div>
 
-      <button :disabled="isSubmitting">
-        <svg v-if="isSubmitting" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"><animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" />
-          </path>
-        </svg>
-        {{ $t('contact_send') }}
-      </button>
-    </form>
-  </section>
+        <button :disabled="isSubmitting">
+          <svg v-if="isSubmitting" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"><animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" />
+            </path>
+          </svg>
+          {{ $t('contact_send') }}
+        </button>
+      </form>
+    </section>
+  </div>
 </template>
 
 <style scoped>
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 form {
   width: 100%;
   max-width: 56.25rem;

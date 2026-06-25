@@ -62,14 +62,16 @@ const stages = computed<StageProps[]>(() => [
 </script>
 
 <template>
-  <section class="wrapper">
-    <h1>{{ $t('projects') }}</h1>
-    <ul>
-      <li v-for="stage in stages" :key="stage.stage">
-        <StageCard v-bind="stage" />
-      </li>
-    </ul>
-  </section>
+  <div class="page-wrapper">
+    <section class="wrapper">
+      <h1>{{ $t('projects') }}</h1>
+      <ul>
+        <li v-for="stage in stages" :key="stage.stage">
+          <StageCard v-bind="stage" />
+        </li>
+      </ul>
+    </section>
+  </div>
 </template>
 
 <style scoped>
