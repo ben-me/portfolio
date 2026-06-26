@@ -2,7 +2,6 @@
 import type { TransitionProps } from "vue";
 
 const transition = ref<TransitionProps | false>({ name: "slide-left" });
-const { t } = useI18n();
 
 useHead({
   titleTemplate: (titleChunk) => {
@@ -33,7 +32,7 @@ if (import.meta.client) {
 
 <template>
   <Html :dir="head.htmlAttrs.dir" :lang="head.htmlAttrs.lang">
-    <NuxtImg src="/img/herobg.webp" :alt="t('home_bg_alt')" />
+    <NuxtImg src="/img/herobg.webp" alt="" />
     <NuxtLayout>
       <NuxtPage :transition="transition" />
     </NuxtLayout>
