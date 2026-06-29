@@ -56,7 +56,7 @@ const stages = computed<StageProps[]>(() => [
     tags: ["React", "TypeScript", "HTML", "CSS", "Vite", "Figma", "Docker"],
     src: "/img/codepilots.webp",
     alt: $t("projects_stage_codepilots_alt"),
-    url: "https://codepilots.de",
+    url: "https://codepilots.mehler.dev",
   },
 ]);
 </script>
