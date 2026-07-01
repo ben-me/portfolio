@@ -15,9 +15,9 @@
       <p>
         <b>1.2</b>&nbsp;Verantwortlicher f&uuml;r die Datenverarbeitung auf
         dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist
-        Benedikt Mehler, Webentwickler / Webdesigner,
+        Benedikt Mehler, Webentwickler,
         Preu&szlig;enstra&szlig;e 62, 66111 Saarbr&uuml;cken, Deutschland,
-        Tel.: 015563528458, E-Mail: benedikt.mehler@codepilots.de. Der
+        Tel.: 015563528458, E-Mail: benedikt@mehler.dev. Der
         f&uuml;r die Verarbeitung von personenbezogenen Daten
         Verantwortliche ist diejenige nat&uuml;rliche oder juristische
         Person, die allein oder gemeinsam mit anderen &uuml;ber die Zwecke

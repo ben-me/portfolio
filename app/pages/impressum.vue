@@ -20,7 +20,7 @@
           Telefon: <a href="tel:+4915563528458">+49 (0) 155 635 284 58</a>
           <br>
           E-Mail:&nbsp;
-          <a href="mailto:kontakt@codepilots.de">kontakt@codepilots.de</a>
+          <a href="mailto:contact@mehler.dev">contact@mehler.dev</a>
         </p>
       </article>
 
@@ -62,7 +62,7 @@
         </p>
         <p>
           E-Mail:&nbsp;
-          <a href="mailto:kontakt@codepilots.de">kontakt@codepilots.de</a>
+          <a href="mailto:contact@mehler.dev">contact@mehler.dev</a>
         </p>
         <p>
           Die für den Kontakt zur Verf&uuml;gung stehenden Sprachen sind:
