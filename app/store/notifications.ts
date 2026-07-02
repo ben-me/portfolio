@@ -16,6 +16,7 @@ export const useNotificationsStore = defineStore("notifications", () => {
     if (notification.duration > 0) {
       setTimeout(dismiss, notification.duration, notification);
     }
+    return notification;
   }
 
   function dismiss(notification: Notification) {

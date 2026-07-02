@@ -44,7 +44,7 @@ const stages = computed<StageProps[]>(() => [
     kind: "personal",
     tags: ["Vue", "Nuxt", "MapLibre", "TailwindCSS", "HTML"],
     src: "/img/demo-hair.webp",
-    alt: $t("projects_stage_simple_scale_alt"),
+    alt: $t("projects_stage_demo_hair_alt"),
     url: "https://demo-hair.codepilots.de/",
   },
   {

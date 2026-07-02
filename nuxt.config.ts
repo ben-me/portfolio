@@ -58,7 +58,7 @@ export default defineNuxtConfig({
       },
     },
     defaultLocale: "de",
-    baseUrl: "http:localhost:3000",
+    baseUrl: "https://mehler.dev",
     locales: [
       { code: "de", name: "Deutsch", file: "de.json", language: "de-DE" },
       { code: "en", name: "English", file: "en.json", language: "en-US" },
@@ -66,7 +66,7 @@ export default defineNuxtConfig({
   },
   vite: {
     optimizeDeps: {
-      include: ["valibot", "valibot", "@emailjs/browser"],
+      include: ["valibot", "@emailjs/browser"],
     },
   },
 });

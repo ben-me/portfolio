@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <section className="wrapper">
+    <section>
       <h1>
         Impressum
       </h1>

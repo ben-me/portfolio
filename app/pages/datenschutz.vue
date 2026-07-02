@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <section className="wrapper">
+    <section>
       <h1>Datenschutz</h1>
       <h2>1) Einleitung und Kontaktdaten des Verantwortlichen</h2>
       <p>

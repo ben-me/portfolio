@@ -1,7 +1,6 @@
 {
   "nav_home": "Start",
   "nav_projects": "Projekte",
-  "nav_blog": "Blog",
   "nav_about": "Über mich",
   "nav_contact": "Kontakt",
   "home_tagline": "Das Power-up für dein nächstes Web-Projekt.",
@@ -23,7 +22,6 @@
   "about_exp_self_hosting": "(Selbst-)Hosting",
   "about_exp_seo": "SEO",
   "about_exp_postgresql": "PostgreSQL",
-  "blog": "Blog",
   "projects": "Projekte",
   "projects_title": "Projekte",
   "projects_meta_description": "Interesse an meiner Arbeit? Schau dir einfach die Liste meiner abgeschlossenen und sich in arbeit befindenden Projekte an.",
