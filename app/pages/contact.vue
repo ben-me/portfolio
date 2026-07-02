@@ -64,7 +64,7 @@ async function handleSubmit() {
     await emailjs.sendForm(
       config.public.emailjsServiceId,
       config.public.emailjsContactTemplateId,
-      formRef.value as HTMLFormElement,
+      formRef.value ?? "",
       { publicKey: config.public.emailjsPublicKey },
     );
     form.value = { name: "", email: "", phone: "", subject: "", description: "" };
@@ -99,6 +99,7 @@ async function handleSubmit() {
           <input
             id="name"
             v-model="form.name"
+            name="name"
             autocomplete="name"
             :placeholder="$t('contact_name_placeholder')"
             :aria-invalid="!!errors.name || undefined"
@@ -116,6 +117,7 @@ async function handleSubmit() {
           <input
             id="email"
             v-model="form.email"
+            name="email"
             type="email"
             autocomplete="email"
             :placeholder="$t('contact_email_placeholder')"
@@ -134,6 +136,7 @@ async function handleSubmit() {
           <input
             id="phone"
             v-model="form.phone"
+            name="phone"
             type="tel"
             autocomplete="tel"
             :placeholder="$t('contact_phone_placeholder')"
@@ -152,6 +155,7 @@ async function handleSubmit() {
           <input
             id="subject"
             v-model="form.subject"
+            name="subject"
             :placeholder="$t('contact_subject_placeholder')"
             :aria-invalid="!!errors.subject || undefined"
             :aria-describedby="errors.subject ? 'subject-error' : undefined"
@@ -168,6 +172,7 @@ async function handleSubmit() {
           <textarea
             id="description"
             v-model="form.description"
+            name="description"
             rows="5"
             :placeholder="$t('contact_message_placeholder')"
             :aria-invalid="!!errors.description || undefined"
