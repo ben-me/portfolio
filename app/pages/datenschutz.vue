@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrapper">
+  <div class="wrapper">
     <section>
       <h1>Datenschutz</h1>
       <h2>1) Einleitung und Kontaktdaten des Verantwortlichen</h2>
@@ -179,7 +179,7 @@
 
       <h2>6) Tools und Sonstiges</h2>
 
-      <p>- sevDesk</p>
+      <p>sevDesk</p>
 
       <p>
         F&uuml;r die Erledigung der Buchhaltung nutzen wir den Service der
@@ -331,6 +331,10 @@
 <style scoped>
 section {
   justify-items: start;
+
+  p {
+    margin-block-end: 0.5em;
+  }
 }
 
 h1 {
@@ -342,7 +346,7 @@ h1 {
 }
 
 h2 {
-  margin-block: 0.5rem 0.25rem;
+  margin-block: 0.5em;
   font-size: var(--fs-2);
 }
 

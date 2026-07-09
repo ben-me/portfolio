@@ -1,18 +1,20 @@
 <template>
-  <div class="page-wrapper">
+  <div class="wrapper">
     <section>
       <h1>
         Impressum
       </h1>
-      <strong>
-        Benedikt Mehler
-        <br>
-        Webentwickler / Webdesigner
-        <br>
-        Preu&szlig;enstra&szlig;e 62
-        <br>
-        66111 Saarbr&uuml;cken
-      </strong>
+      <address>
+        <strong>
+          Benedikt Mehler
+          <br>
+          Webentwickler / Webdesigner
+          <br>
+          Preu&szlig;enstra&szlig;e 62
+          <br>
+          66111 Saarbr&uuml;cken
+        </strong>
+      </address>
 
       <article>
         <h2>Kontakt</h2>
@@ -76,6 +78,10 @@
 <style scoped>
 section {
   justify-items: start;
+
+  p {
+    margin-block-end: 0.5em;
+  }
 }
 
 h1 {
@@ -87,7 +93,7 @@ h1 {
 }
 
 h2 {
-  margin-block: 0.5rem 0.25rem;
+  margin-block: 0.5em;
   font-size: var(--fs-2);
 }
 </style>
