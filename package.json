@@ -2,7 +2,7 @@
   "name": "portfolio",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@11.7.0+sha512.19cc852c120c7125760f2443ee6be0ca5b40f9f50598de1a09a1f177503e010e57c23c77646e01e761de59bf874fb22a3398c33ab9691fc13eb946b6f0f4d620",
+  "packageManager": "pnpm@11.21.0+sha512.521705bce689924eac72f5a3587122f362689ef6571e55ba80076fd637c11132ecffada26fad4ea79c485bfddbfd3d5a2a5b05805a77e893de71ec8a6cca3bb1",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -22,7 +22,7 @@
     "@nuxt/image": "2.0.0",
     "@nuxtjs/i18n": "10.4.0",
     "@pinia/nuxt": "0.11.3",
-    "nuxt": "~4.4.8",
+    "nuxt": "^4.5.2",
     "pinia": "^3.0.4",
     "valibot": "^1.4.2",
     "vue": "^3.5.41",
