@@ -24,27 +24,27 @@
     "@pinia/nuxt": "0.11.3",
     "nuxt": "~4.4.8",
     "pinia": "^3.0.4",
-    "valibot": "^1.4.1",
-    "vue": "^3.5.38",
-    "vue-router": "^5.1.0"
+    "valibot": "^1.4.2",
+    "vue": "^3.5.41",
+    "vue-router": "^5.2.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^9.0.0",
+    "@antfu/eslint-config": "^9.3.0",
     "@csstools/postcss-global-data": "^4.0.0",
-    "@nuxt/test-utils": "^4.0.3",
-    "@types/node": "^25.9.3",
+    "@nuxt/test-utils": "^4.1.0",
+    "@types/node": "^25.9.5",
     "@vue/test-utils": "^2.4.11",
-    "eslint": "^10.5.0",
+    "eslint": "^10.8.1",
     "eslint-plugin-format": "^2.0.1",
-    "happy-dom": "^20.10.4",
+    "happy-dom": "^20.11.2",
     "husky": "^9.1.7",
-    "lint-staged": "^17.0.7",
-    "playwright-core": "^1.61.0",
-    "postcss-preset-env": "^11.3.1",
+    "lint-staged": "^17.3.0",
+    "playwright-core": "^1.62.1",
+    "postcss-preset-env": "^11.3.2",
     "typescript": "^6.0.3",
-    "vite": "^8.0.16",
-    "vitest": "^4.1.9",
-    "vue-tsc": "^3.3.5"
+    "vite": "^8.2.1",
+    "vitest": "^4.1.10",
+    "vue-tsc": "^3.3.9"
   },
   "lint-staged": {
     "*": "pnpm eslint --fix"
