@@ -2,9 +2,9 @@
 const { t } = useI18n();
 
 const skills = computed(() => [
-  { label: "Svelte", value: 90 },
-  { label: "Vue", value: 70 },
-  { label: "React", value: 80 },
+  { label: "Svelte", value: 80 },
+  { label: "Vue", value: 80 },
+  { label: "React", value: 70 },
   { label: "HTML", value: 95 },
   { label: "CSS", value: 90 },
   { label: "TypeScript", value: 75 },
